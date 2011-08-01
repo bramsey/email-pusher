@@ -1,7 +1,35 @@
 Pusher::Application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get "accounts/create"
 
+  get "accounts/destroy"
+  
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  resources :users do
+    resources :accounts, :only => [:index, :new]
+    resources :notification_services, :except => [:create]
+    resources :notifo_services, :controller => "notification_services"
+    member do
+      post :listening
+    end
+  end
+  
+  resources :accounts, :except => [:index, :new] do
+    member do
+      post :toggle_active
+      post :update_service
+    end
+  end
+  
+  resources :notification_services
+  resources :notifo_services, :controller => "notification_services"
+
+
+  match '/oauth/google', :to => 'oauth#google'
+  match '/oauth/auth', :to => 'oauth#auth'
+  
   root :to => "pages#home"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
