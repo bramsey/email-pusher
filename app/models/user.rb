@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :remember_me
+  attr_accessible :email, :remember_me, :password
   
   def self.find_for_open_id(access_token, signed_in_resource=nil)
     data = access_token['user_info']
