@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801210829) do
+ActiveRecord::Schema.define(:version => 20110801213355) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -25,11 +25,24 @@ ActiveRecord::Schema.define(:version => 20110801210829) do
 
   add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
 
+  create_table "notification_services", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifo_services", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                              :default => "", :null => false
-    t.string   "encrypted_password",  :limit => 128, :default => "", :null => false
+    t.string   "email",                                          :default => "", :null => false
+    t.string   "encrypted_password",              :limit => 128, :default => "", :null => false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      :default => 0
+    t.integer  "sign_in_count",                                  :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -37,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110801210829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "listening"
+    t.integer  "default_notification_service_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
