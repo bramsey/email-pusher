@@ -4,4 +4,4 @@
 - else
 	#sign_out
 		%strong
-			= link_to 'Sign out: ' + current_alias, destroy_user_session_path, :class => "sign_out"
+			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"
