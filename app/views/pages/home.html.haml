@@ -5,4 +5,8 @@
 	#sign_out
 		%strong
 			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"
+	- unless current_user.accounts.empty?
+		.accounts
+			= render @accounts
+		%hr
 	= link_to 'Link A Gmail Account', root_url + "oauth/google"
