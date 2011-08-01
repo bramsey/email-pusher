@@ -11,6 +11,11 @@ gem 'sass'
 gem 'compass', ">= 0.11.4"
 gem 'jquery-rails'
 gem "html5-boilerplate"
+gem 'starling'
+gem 'devise'
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'oa-openid', :require => 'omniauth/openid'
+gem 'oauth'
 gem 'notifo', :git => 'git://github.com/jot/notifo.git'
 
 group :development, :test do
