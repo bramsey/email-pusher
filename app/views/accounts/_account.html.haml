@@ -1,7 +1,7 @@
 .account
 	.account_information
 		.row
-			%span.account_name= account.username					
+			%span.account_name= account.username				
 		.row
 			= activate_box_for account
 			= link_to '( Delete )', account, :method => :delete, 

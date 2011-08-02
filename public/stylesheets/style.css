@@ -308,10 +308,31 @@ input:invalid, textarea:invalid {
   margin: 1em;
 }
 
-/* line 57, ../../app/stylesheets/partials/_page.scss */
+/* line 56, ../../app/stylesheets/partials/_page.scss */
+header h1 {
+  font-size: 220%;
+}
+
+/* line 59, ../../app/stylesheets/partials/_page.scss */
 #main {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+/* line 64, ../../app/stylesheets/partials/_page.scss */
+.account_name {
+  font-size: 140%;
+  color: #555;
+}
+
+/* line 69, ../../app/stylesheets/partials/_page.scss */
+.account_information {
+  margin-bottom: 1.5em;
+}
+
+/* line 73, ../../app/stylesheets/partials/_page.scss */
+.row {
+  margin: .25em;
 }
 
 /*/mediaquery*/
