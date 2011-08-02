@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801213355) do
+ActiveRecord::Schema.define(:version => 20110802154900) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20110801213355) do
   end
 
   add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
+
+  create_table "contacts", :force => true do |t|
+    t.string   "email"
+    t.integer  "user_id"
+    t.boolean  "active",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["email"], :name => "index_contacts_on_email", :unique => true
 
   create_table "notification_services", :force => true do |t|
     t.integer  "user_id"

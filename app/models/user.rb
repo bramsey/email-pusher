@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :remember_me, :password, :default_notification_service
   
   has_many :accounts, :dependent => :destroy
+  has_many :contacts, :dependent => :destroy
   has_many :notification_services, :dependent => :destroy
   
   belongs_to :default_notification_service, :class_name => "NotificationService"
