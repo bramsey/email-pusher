@@ -1,0 +1,12 @@
+- content_for :javascripts do
+	= javascript_include_tag 'iphone-style-checkboxes.js'
+- content_for :stylesheets do
+	= stylesheet_link_tag 'iphone_style', :media => 'all'
+
+- unless @contacts.empty?
+	= render @contacts
+	= link_to 'Add a contact', new_contact_path
+- else
+	Please
+	= link_to ' add a contact ', new_contact_path
+	to receive notifications of their emails.

@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110802154900) do
     t.datetime "updated_at"
   end
 
-  add_index "contacts", ["email"], :name => "index_contacts_on_email", :unique => true
+  add_index "contacts", ["email"], :name => "index_contacts_on_email"
 
   create_table "notification_services", :force => true do |t|
     t.integer  "user_id"

@@ -1,0 +1,8 @@
+.contact
+	.contact_information
+		.row
+			%span.account_name= contact.email				
+		.row
+			= activate_box_for contact
+			= link_to '( Delete )', contact, :method => :delete, 
+				:class => "delete_item"

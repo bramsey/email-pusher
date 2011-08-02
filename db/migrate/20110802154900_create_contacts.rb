@@ -8,7 +8,7 @@ class CreateContacts < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :contacts, :email, :unique => true
+    add_index :contacts, :email
   end
 
   def self.down

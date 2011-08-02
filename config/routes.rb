@@ -14,6 +14,12 @@ Pusher::Application.routes.draw do
     end
   end
   
+  resources :contacts do
+    member do
+      post :toggle_active
+    end
+  end
+  
   resources :accounts, :except => [:index, :new] do
     member do
       post :toggle_active
@@ -27,6 +33,7 @@ Pusher::Application.routes.draw do
 
   match '/oauth/google', :to => 'oauth#google'
   match '/oauth/auth', :to => 'oauth#auth'
+  match '/contacts', :to => 'contacts#index'
   
   root :to => "pages#home"
   
