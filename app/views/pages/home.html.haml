@@ -5,6 +5,7 @@
 	#sign_out
 		%strong
 			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"
+	%hr
 	- unless current_user.accounts.empty?
 		.accounts
 			= render @accounts
