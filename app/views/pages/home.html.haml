@@ -9,6 +9,9 @@
 	#sign_out
 		%strong
 			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"
+	%span.account_name
+		Check mail:
+	= listen_box
 	%hr
 	- unless current_user.accounts.empty?
 		.accounts

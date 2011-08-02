@@ -10,7 +10,7 @@ Pusher::Application.routes.draw do
     resources :notification_services, :except => [:create]
     resources :notifo_services, :controller => "notification_services"
     member do
-      post :listening
+      post :toggle_listening
     end
   end
   
