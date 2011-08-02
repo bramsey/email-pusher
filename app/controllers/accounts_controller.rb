@@ -19,7 +19,7 @@ class AccountsController < ApplicationController
     @account.destroy ?
       flash[:success] = "Account deleted." :
       flash[:error] = "Error deleting account."
-    redirect_to user_accounts_path( current_user ) 
+    redirect_to root_path
   end
   
   def edit

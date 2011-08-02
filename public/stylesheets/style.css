@@ -335,6 +335,22 @@ header h1 {
   margin: .25em;
 }
 
+/* line 75, ../../app/stylesheets/partials/_page.scss */
+#sign_out {
+  float: right;
+  position: absolute;
+  top: .5em;
+  right: 2em;
+}
+/* line 80, ../../app/stylesheets/partials/_page.scss */
+#sign_out a.sign_out {
+  color: #777;
+}
+/* line 82, ../../app/stylesheets/partials/_page.scss */
+#sign_out a.sign_out:hover {
+  color: #444;
+}
+
 /*/mediaquery*/
 /*/mediaquery*/
 @media print {

@@ -72,4 +72,15 @@ header {
 
 .row { margin: .25em; }
 
+#sign_out {
+	float: right;
+	position: absolute;
+	top: .5em;
+	right: 2em;
+	a.sign_out {
+		color: #777;
+		&:hover { color: #444; }
+	}
+}
+
 footer {}

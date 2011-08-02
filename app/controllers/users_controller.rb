@@ -30,6 +30,25 @@ class UsersController < ApplicationController
 
     render :nothing => true
   end
+  
+  def init
+    sender = params[:sender]
+    recipient = params[:recipient]
+    priority = params[:priority]
+    subject = params[:subject] || "no subject provided"
+    @user = User.find_by_email( recipient ) unless recipient.nil?
+    unless (sender.nil? || @user.nil?)
+      if true # replace with check for sender in user's contacts.
+        @user.default_notification_service.notify(sender, subject)
+        @response = "notification sent at #{Time.now}"
+        render :text => @response
+      else
+        render :text => 'denied'
+      end 
+    else
+      render :text => 'denied'
+    end
+  end
 
   def destroy
     unless current_user?(User.find(params[:id]))
@@ -39,22 +58,6 @@ class UsersController < ApplicationController
       flash[:error] = "Deletion of signed in user not allowed."
     end
     redirect_to users_path
-  end
-  
-  def recipients
-    show_relationship(:recipients)
-  end
-
-  def senders
-    show_relationship(:senders)
-  end
-  
-  def show_relationship(action)
-    @title = action.to_s.capitalize
-    @user = User.find(params[:id])
-    @users = @user.send(action).paginate(:page => params[:page])
-    @toDo = "ensure right people are displayed"
-    render 'show_relationship'
   end
   
 
