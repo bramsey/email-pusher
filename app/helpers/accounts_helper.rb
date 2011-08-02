@@ -2,13 +2,10 @@ module AccountsHelper
   
   def activate_box_for( account )
     active = account.active
-    label_tag( "active#{account.id}", "Active?", :class => "switch" ) + 
-    check_box_tag( "active#{account.id}", "active#{account.id}", active, 
-       :onclick => remote_function(
-         :url => toggle_active_account_path(account)
-       ))
-  end
-  
+    check_box_tag( "active#{account.id}", "active#{account.id}", active,
+      {'data-href' => toggle_active_account_path(account), :class => 'checkable' })
+   end
+
   def select_box_for( account )
     select_tag( "notification_service_#{account.id}", 
                 options_from_collection_for_select(account.user.notification_services, 

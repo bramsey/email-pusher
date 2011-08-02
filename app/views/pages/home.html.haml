@@ -1,3 +1,7 @@
+- content_for :javascripts do
+	= javascript_include_tag 'iphone-style-checkboxes.js'
+- content_for :stylesheets do
+	= stylesheet_link_tag 'iphone_style', :media => 'all'
 - unless user_signed_in?
 	#sign_in
 		= link_to 'Sign in with Google', user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id"), :class => "sign_in"
