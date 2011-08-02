@@ -4,7 +4,7 @@ module AccountsHelper
     active = account.active
     check_box_tag( "active#{account.id}", "active#{account.id}", active,
       {'data-href' => toggle_active_account_path(account), :class => 'checkable' })
-   end
+  end
 
   def select_box_for( account )
     select_tag( "notification_service_#{account.id}", 
