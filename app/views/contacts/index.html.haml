@@ -4,7 +4,8 @@
 	= stylesheet_link_tag 'iphone_style', :media => 'all'
 
 - unless @contacts.empty?
-	= render @contacts
+	.accounts
+		= render @contacts
 	= link_to 'Add a contact', new_contact_path
 - else
 	Please

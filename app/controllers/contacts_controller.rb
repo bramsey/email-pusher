@@ -20,11 +20,11 @@ class ContactsController < ApplicationController
   end
   
   def edit
-    @contact = contact.find(params[:id])
+    @contact = Contact.find(params[:id])
   end
   
   def update
-    @contact = contact.find(params[:id])
+    @contact = Contact.find(params[:id])
     if params[:contact][:notification_service_id].is_a?(String)
       params[:contact][:notification_service_id] = params[:contact][:notification_service_id].to_i
     end

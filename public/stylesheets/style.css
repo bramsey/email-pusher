@@ -279,11 +279,17 @@ strong, th {
 }
 
 /* line 28, ../../app/stylesheets/partials/_page.scss */
+#logo {
+  color: #444;
+  text-decoration: none;
+}
+
+/* line 33, ../../app/stylesheets/partials/_page.scss */
 small {
   font-size: 85%;
 }
 
-/* line 37, ../../app/stylesheets/partials/_page.scss */
+/* line 42, ../../app/stylesheets/partials/_page.scss */
 input:invalid, textarea:invalid {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -297,58 +303,114 @@ input:invalid, textarea:invalid {
   box-shadow: 0 0 5px 0 red;
 }
 
-/* line 42, ../../app/stylesheets/partials/_page.scss */
+/* line 47, ../../app/stylesheets/partials/_page.scss */
 .no-boxshadow input:invalid,
 .no-boxshadow textarea:invalid {
   background-color: #f0dddd;
 }
 
-/* line 51, ../../app/stylesheets/partials/_page.scss */
+/* line 56, ../../app/stylesheets/partials/_page.scss */
 #container {
   margin: 1em;
 }
 
-/* line 56, ../../app/stylesheets/partials/_page.scss */
+/* line 61, ../../app/stylesheets/partials/_page.scss */
 header h1 {
   font-size: 220%;
 }
 
-/* line 59, ../../app/stylesheets/partials/_page.scss */
+/* line 64, ../../app/stylesheets/partials/_page.scss */
 #main {
   margin-top: 1em;
   margin-bottom: 1em;
+  margin-left: .25em;
 }
 
-/* line 64, ../../app/stylesheets/partials/_page.scss */
-.account_name {
+/* line 70, ../../app/stylesheets/partials/_page.scss */
+.account_name, .check_name {
   font-size: 140%;
   color: #555;
 }
 
-/* line 69, ../../app/stylesheets/partials/_page.scss */
+/* line 75, ../../app/stylesheets/partials/_page.scss */
 .account_information {
   margin-bottom: 1.5em;
+  width: 320px;
+  position: relative;
 }
 
-/* line 73, ../../app/stylesheets/partials/_page.scss */
+/* line 81, ../../app/stylesheets/partials/_page.scss */
 .row {
   margin: .25em;
 }
 
-/* line 75, ../../app/stylesheets/partials/_page.scss */
+/* line 83, ../../app/stylesheets/partials/_page.scss */
 #sign_out {
-  float: right;
+  float: left;
   position: absolute;
   top: .5em;
   right: 2em;
 }
-/* line 80, ../../app/stylesheets/partials/_page.scss */
+/* line 88, ../../app/stylesheets/partials/_page.scss */
 #sign_out a.sign_out {
   color: #777;
 }
-/* line 82, ../../app/stylesheets/partials/_page.scss */
+/* line 90, ../../app/stylesheets/partials/_page.scss */
 #sign_out a.sign_out:hover {
   color: #444;
+}
+
+/* line 94, ../../app/stylesheets/partials/_page.scss */
+#sign_in {
+  padding-left: .2em;
+  margin-top: .5em;
+}
+
+/* line 99, ../../app/stylesheets/partials/_page.scss */
+.check {
+  width: 194px;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 105, ../../app/stylesheets/partials/_page.scss */
+.check_name {
+  display: inline-block;
+}
+
+/* line 109, ../../app/stylesheets/partials/_page.scss */
+.right_box {
+  position: absolute;
+  top: -2px;
+  right: 0px;
+  display: inline-block;
+}
+
+/* line 116, ../../app/stylesheets/partials/_page.scss */
+hr {
+  color: #EBEBEB;
+}
+
+/* line 118, ../../app/stylesheets/partials/_page.scss */
+.account {
+  min-height: 30px;
+  border-bottom: 1px solid #EBEBEB;
+  padding-top: 3em;
+  width: 320px;
+  position: relative;
+}
+
+/* line 126, ../../app/stylesheets/partials/_page.scss */
+.accounts {
+  width: 320px;
+  border-top: 1px solid #EBEBEB;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* line 133, ../../app/stylesheets/partials/_page.scss */
+footer {
+  margin-left: .25em;
 }
 
 /*/mediaquery*/

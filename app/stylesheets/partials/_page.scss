@@ -25,6 +25,11 @@ strong, th {
   font-weight: bold;
 }
 
+#logo {
+	color: #444;
+	text-decoration: none;
+}
+
 small {
   // Use font-size mixin to convert to percentage for YUI
   // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
@@ -59,21 +64,24 @@ header {
 #main {
 	margin-top: 1em;
 	margin-bottom: 1em;
+	margin-left: .25em;
 }
 
-.account_name {
+.account_name, .check_name {
 	font-size: 140%;
 	color: #555;
 }
 
 .account_information {
 	margin-bottom: 1.5em;
+	width: 320px;
+	position: relative;
 }
 
 .row { margin: .25em; }
 
 #sign_out {
-	float: right;
+	float: left;
 	position: absolute;
 	top: .5em;
 	right: 2em;
@@ -83,4 +91,43 @@ header {
 	}
 }
 
-footer {}
+#sign_in {
+	padding-left: .2em;
+	margin-top: .5em;
+}
+
+.check {
+	width: 194px;
+	display: inline-block;
+	position: relative;
+}
+
+.check_name {
+	display: inline-block;
+}
+
+.right_box {
+	position: absolute;
+	top: -2px;
+	right: 0px;
+	display: inline-block;
+}
+
+hr { color: #EBEBEB; }
+
+.account {
+	min-height: 30px;
+	border-bottom: 1px solid #EBEBEB;
+	padding-top: 3em;
+	width: 320px;
+	position: relative;
+}
+
+.accounts {
+	width: 320px;
+	border-top: 1px solid #EBEBEB;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+footer { margin-left: .25em;}

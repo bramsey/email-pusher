@@ -2,21 +2,15 @@
 	= javascript_include_tag 'iphone-style-checkboxes.js'
 - content_for :stylesheets do
 	= stylesheet_link_tag 'iphone_style', :media => 'all'
-- unless user_signed_in?
-	#sign_in
-		= link_to 'Sign in with Google', user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id"), :class => "sign_in"
-- else
-	#sign_out
-		%strong
-			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"
-	%span.account_name
-		Check mail:
-	= listen_box
-	%hr
+- if user_signed_in?
+	.check
+		.check_name
+			Check mail:
+		.right_box
+			= listen_box
 	- unless current_user.accounts.empty?
 		.accounts
 			= render @accounts
-		%hr
 	= link_to 'Link A Gmail Account', root_url + "oauth/google"
 	- if current_user.default_notification_service_id.nil?
 		= link_to ' - Add Notifo Account', new_user_notification_service_path(current_user) + "?type=NotifoService"
