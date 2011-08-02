@@ -10,3 +10,7 @@
 			= render @accounts
 		%hr
 	= link_to 'Link A Gmail Account', root_url + "oauth/google"
+	- if current_user.default_notification_service_id.nil?
+		= link_to ' - Add Notifo Account', new_user_notification_service_path(current_user) + "?type=NotifoService"
+	- else
+		= link_to 'Edit Notifo Account', edit_notifo_service_path(current_user.default_notification_service_id)

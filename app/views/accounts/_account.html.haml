@@ -1,13 +1,7 @@
 .account
 	.account_information
 		.row
-			%span.account_name= account.username
-		.row
-			%span.account_notification_information
-				- unless account.notification_service.nil?
-					= select_box_for account
-				- else
-					= link_to '( Select Notification Service )', edit_account_path(account)
+			%span.account_name= account.username					
 		.row
 			= activate_box_for account
 			= link_to '( Delete )', account, :method => :delete, 
