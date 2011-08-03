@@ -465,31 +465,43 @@ hr {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
+  max-width: 305px;
 }
 
-/* line 183, ../../app/stylesheets/partials/_page.scss */
+/* line 184, ../../app/stylesheets/partials/_page.scss */
 .success {
   border: 1px solid #0a0;
   background-color: #cfc;
 }
 
-/* line 184, ../../app/stylesheets/partials/_page.scss */
+/* line 185, ../../app/stylesheets/partials/_page.scss */
 .notice {
   border: 1px solid #aa0;
   background-color: #ffc;
 }
 
-/* line 185, ../../app/stylesheets/partials/_page.scss */
+/* line 186, ../../app/stylesheets/partials/_page.scss */
 .error {
   border: 1px solid #a00;
   background-color: #fcc;
 }
 
-/* line 187, ../../app/stylesheets/partials/_page.scss */
+/* line 188, ../../app/stylesheets/partials/_page.scss */
 footer {
   margin-left: .25em;
   position: relative;
   width: 320px;
+}
+
+/* line 194, ../../app/stylesheets/partials/_page.scss */
+#contact_field {
+  width: 226px;
+}
+
+/* line 198, ../../app/stylesheets/partials/_page.scss */
+#slidefield {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 /*/mediaquery*/

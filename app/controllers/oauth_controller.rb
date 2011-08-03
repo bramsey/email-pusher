@@ -45,7 +45,7 @@ class OauthController < ApplicationController
         }
         @account = current_user.accounts.build(account_params)
         if @account.save
-          flash[:success] = "#{@email} linked successfully."
+          #flash[:success] = "#{@email} linked successfully."
         else
           flash[:error] = "Could not create account with the returned credentials"
           RAILS_DEFAULT_LOGGER.error "could not create account for #{@email}"

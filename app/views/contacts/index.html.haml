@@ -1,8 +1,8 @@
 - unless @contacts.empty?
 	.accounts
 		= render @contacts
-	= link_to 'Add a contact', new_contact_path
+	= render 'contact_form'
+	= link_to "Add a contact", "#", :id => "slide-toggle"
 - else
-	Please
-	= link_to ' add a contact ', new_contact_path
-	to receive notifications of their emails.
+	= render 'empty'
+	= render 'contact_form'

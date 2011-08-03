@@ -10,5 +10,10 @@ $('.checkable').live('change', function() {
 });
 
 $(document).ready(function() {
-      $(':checkbox').iphoneStyle();
+    $(':checkbox').iphoneStyle();
+
+	$("#slide-toggle").click(function () {
+		$('#slidefield').slideToggle('fast');
+		return false;
+    });
 });

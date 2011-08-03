@@ -178,6 +178,7 @@ hr { color: #EBEBEB; }
 	clear: both;
 	margin-top: .25em;
 	@include border-radius(2px);
+	max-width: 305px;
 }
 
 .success { border: 1px solid #0a0; background-color: #cfc; }
@@ -188,4 +189,14 @@ footer {
 	margin-left: .25em; 
 	position: relative;
 	width: 320px;
+}
+
+#contact_field {
+	width: 226px;
+}
+
+#slidefield{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	//display: none;
 }
