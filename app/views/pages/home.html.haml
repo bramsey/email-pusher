@@ -3,11 +3,6 @@
 - content_for :stylesheets do
 	= stylesheet_link_tag 'iphone_style', :media => 'all'
 - if user_signed_in?
-	.check
-		.check_name
-			Check mail:
-		.right_box
-			= listen_box
 	- unless current_user.accounts.empty?
 		.accounts
 			= render @accounts

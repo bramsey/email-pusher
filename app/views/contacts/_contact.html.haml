@@ -1,7 +1,9 @@
 .account
 	.account_information
-		.check_name
-			= contact.email				
+		- if contact.active
+			.check_name= contact.email	
+		- else
+			.check_name_quiet= contact.email
 		.right_box
 			= activate_box_for contact
 		.row

@@ -67,10 +67,12 @@ header {
 	margin-left: .25em;
 }
 
-.account_name, .check_name {
+.account_name, .check_name, .check_name_quiet {
 	font-size: 140%;
 	color: #555;
 }
+
+.check_name_quiet { color: #999; }
 
 .account_information {
 	margin-bottom: 1.5em;
@@ -97,13 +99,18 @@ header {
 }
 
 .check {
-	width: 194px;
+	width: 300px;
 	display: inline-block;
 	position: relative;
 }
 
 .check_name {
 	display: inline-block;
+}
+
+.logo_box {
+	margin-top: .5em;
+	margin-left: .2em;
 }
 
 .right_box {
