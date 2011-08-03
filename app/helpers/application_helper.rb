@@ -18,7 +18,7 @@ module ApplicationHelper
   end
   
   def link(label, path)
-    if request.request_uri == path
+    if request.fullpath == path
       link_to label, path, :class => "selected"
     else
       link_to label, path
