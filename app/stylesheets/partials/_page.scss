@@ -140,6 +140,7 @@ hr { color: #EBEBEB; }
 	color: #666;
 	clear: both;
 	margin-top: .25em;
+	@include border-radius(2px);
 }
 
 .success { border: 1px solid #0a0; background-color: #cfc; }
