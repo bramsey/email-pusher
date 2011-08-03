@@ -1,5 +1,5 @@
-.account
-	.account_information
+.contact(id = "contact#{contact.id}")
+	.contact_information
 		- if contact.active
 			.check_name= contact.email	
 		- else
@@ -8,4 +8,4 @@
 			= activate_contact_box_for contact
 		.row
 			= link_to '( Delete )', contact, :method => :delete, 
-				:class => "delete_item"
+				:remote => true, :class => "delete_item"

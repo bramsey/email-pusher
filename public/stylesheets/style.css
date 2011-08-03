@@ -369,7 +369,7 @@ nav {
 }
 
 /* line 107, ../../app/stylesheets/partials/_page.scss */
-.account_information {
+.account_information, .contact_information {
   margin-bottom: 1.5em;
   width: 320px;
   position: relative;
@@ -431,7 +431,7 @@ hr {
 }
 
 /* line 155, ../../app/stylesheets/partials/_page.scss */
-.account {
+.account, .contact {
   min-height: 30px;
   border-bottom: 1px solid #EBEBEB;
   padding-top: 3em;
@@ -440,7 +440,7 @@ hr {
 }
 
 /* line 163, ../../app/stylesheets/partials/_page.scss */
-.accounts {
+.accounts, .contacts {
   width: 320px;
   border-top: 1px solid #EBEBEB;
   margin-top: 1.5em;

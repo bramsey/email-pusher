@@ -1,0 +1,10 @@
+$(".contacts").html("<%= escape_javascript(render(:partial => "contacts",
+	:locals => { :contacts => @contacts })) %>")
+$("#contact<%= @contact.id %>").hide(0);
+$(document).ready(function() {
+	$(':input','#contact_field')
+	 .not(':button, :submit, :reset, :hidden')
+	 .val('')
+	$("#contact_field").focus()
+});
+$("#contact<%= @contact.id %>").slideDown('fast');

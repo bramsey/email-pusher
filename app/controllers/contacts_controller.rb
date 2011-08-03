@@ -1,22 +1,30 @@
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorized_user, :except => [:index, :new, :create]
+  before_filter :load
+  
+  respond_to :html, :js
+  
+  def load
+    @user = current_user
+    @contacts = @user.contacts
+  end
 
   def create
     @contact  = current_user.contacts.build(params[:contact])
     if @contact.save
-      flash[:success] = "contact created!"
-      redirect_to contacts_path
-    else
-      render 'pages/home'
+      flash.now[:success] = "Contact created!"
     end
+    
+    respond_with @contact
   end
 
   def destroy
     @contact.destroy ?
-      flash[:success] = "contact deleted." :
-      flash[:error] = "Error deleting contact."
-    redirect_to contacts_path
+      flash.now[:success] = "Contact deleted." :
+      flash.now[:error] = "Error deleting contact."
+    
+    respond_with @contact
   end
   
   def edit
@@ -31,7 +39,7 @@ class ContactsController < ApplicationController
     
     RAILS_DEFAULT_LOGGER.error params[:contact][:notification_service_id]
     @contact.update_attributes(params[:contact]) ?
-      flash[:success] = "contact updated." :
+      flash[:success] = "Contact updated." :
       flash[:error] = "Error updating contact."
     redirect_to contacts_path
   end
@@ -45,9 +53,6 @@ class ContactsController < ApplicationController
   end
   
   def index
-    @user = current_user
-    @title = "contacts"
-    @contacts = @user.contacts
   end
   
   def new

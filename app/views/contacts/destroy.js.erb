@@ -1,0 +1,4 @@
+$("#contact<%= @contact.id %>").slideUp('fast');
+setTimeout(function() {
+  $("#contact<%= @contact.id %>").remove();
+}, 1000);
