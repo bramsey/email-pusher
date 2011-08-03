@@ -459,6 +459,7 @@ hr {
   color: #666;
   clear: both;
   margin-top: .25em;
+  margin-bottom: 1em;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   -o-border-radius: 2px;
@@ -468,49 +469,49 @@ hr {
   max-width: 305px;
 }
 
-/* line 184, ../../app/stylesheets/partials/_page.scss */
+/* line 185, ../../app/stylesheets/partials/_page.scss */
 .success {
   border: 1px solid #0a0;
   background-color: #cfc;
 }
 
-/* line 185, ../../app/stylesheets/partials/_page.scss */
+/* line 186, ../../app/stylesheets/partials/_page.scss */
 .notice {
   border: 1px solid #aa0;
   background-color: #ffc;
 }
 
-/* line 186, ../../app/stylesheets/partials/_page.scss */
+/* line 187, ../../app/stylesheets/partials/_page.scss */
 .error {
   border: 1px solid #a00;
   background-color: #fcc;
 }
 
-/* line 188, ../../app/stylesheets/partials/_page.scss */
+/* line 189, ../../app/stylesheets/partials/_page.scss */
 footer {
   margin-left: .25em;
   position: relative;
   width: 320px;
 }
 
-/* line 194, ../../app/stylesheets/partials/_page.scss */
+/* line 195, ../../app/stylesheets/partials/_page.scss */
 #contact_field {
   width: 226px;
 }
 
-/* line 198, ../../app/stylesheets/partials/_page.scss */
+/* line 199, ../../app/stylesheets/partials/_page.scss */
 #slidefield {
   padding-top: 1em;
   padding-bottom: 1em;
   display: none;
 }
 
-/* line 204, ../../app/stylesheets/partials/_page.scss */
+/* line 205, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckContainer {
   width: 90px;
 }
 
-/* line 205, ../../app/stylesheets/partials/_page.scss */
+/* line 206, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckHandle {
   width: 34px;
 }

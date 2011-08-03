@@ -1,0 +1,15 @@
+- if current_user.default_notification_service_id.nil?
+	.notice
+		Please
+		= link_to 'add a Notifo account', new_user_notification_service_path(current_user) + "?type=NotifoService"
+		= " to get push notifications to your phone."
+		
+- unless current_user.accounts.empty?
+	= render :partial => 'accounts/accounts', :locals => { :accounts => @accounts }
+- else
+	= render :partial => 'accounts/empty'
+	
+
+- unless current_user.default_notification_service_id.nil?
+	= " - "
+	= link_to 'Edit Notifo Account', edit_notifo_service_path(current_user.default_notification_service_id)

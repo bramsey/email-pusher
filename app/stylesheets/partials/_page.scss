@@ -177,6 +177,7 @@ hr { color: #EBEBEB; }
 	color: #666;
 	clear: both;
 	margin-top: .25em;
+	margin-bottom: 1em;
 	@include border-radius(2px);
 	max-width: 305px;
 }
