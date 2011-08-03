@@ -130,4 +130,20 @@ hr { color: #EBEBEB; }
 	margin-bottom: 1.5em;
 }
 
+#flash {
+	margin-bottom: 1.25em;
+}
+
+.success, .error, .notice {
+	display: inline-block; 
+	padding: .5em;
+	color: #666;
+	clear: both;
+	margin-top: .25em;
+}
+
+.success { border: 1px solid #0a0; background-color: #cfc; }
+.notice { border: 1px solid #aa0; background-color: #ffc; }
+.error { border: 1px solid #a00; background-color: #fcc; }
+
 footer { margin-left: .25em;}

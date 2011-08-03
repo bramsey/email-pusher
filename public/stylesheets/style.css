@@ -409,6 +409,38 @@ hr {
 }
 
 /* line 133, ../../app/stylesheets/partials/_page.scss */
+#flash {
+  margin-bottom: 1.25em;
+}
+
+/* line 137, ../../app/stylesheets/partials/_page.scss */
+.success, .error, .notice {
+  display: inline-block;
+  padding: .5em;
+  color: #666;
+  clear: both;
+  margin-top: .25em;
+}
+
+/* line 145, ../../app/stylesheets/partials/_page.scss */
+.success {
+  border: 1px solid #0a0;
+  background-color: #cfc;
+}
+
+/* line 146, ../../app/stylesheets/partials/_page.scss */
+.notice {
+  border: 1px solid #aa0;
+  background-color: #ffc;
+}
+
+/* line 147, ../../app/stylesheets/partials/_page.scss */
+.error {
+  border: 1px solid #a00;
+  background-color: #fcc;
+}
+
+/* line 149, ../../app/stylesheets/partials/_page.scss */
 footer {
   margin-left: .25em;
 }
