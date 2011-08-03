@@ -1,5 +1,5 @@
-$(".contacts").html("<%= escape_javascript(render(:partial => "contacts",
-	:locals => { :contacts => @contacts })) %>")
+$(".contacts").append("<%= escape_javascript(render(:partial => "contact",
+	:locals => { :contact => @contact })) %>")
 $("#contact<%= @contact.id %>").hide(0);
 $(document).ready(function() {
 	$(':input','#contact_field')
