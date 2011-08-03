@@ -2,6 +2,6 @@
 	= form_for current_user.contacts.build(:user_id => current_user.id), :remote => true do |f|
 		= render 'shared/error_messages', :object => f.object
 		= f.hidden_field :user_id
-		#slidefield(tabindex = "100")
+		#slidefield
 			= f.text_field :email, :id => "input_field"
 			= f.submit "Add Contact"
