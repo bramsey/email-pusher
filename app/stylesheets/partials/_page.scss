@@ -61,6 +61,36 @@ header {
 	h1 { font-size: 220%; }
 }
 
+#logo {
+	color: #444;
+}
+
+nav {
+	font-size: 160%;
+	margin-top: .5em;
+	margin-left: .1em;
+}
+
+#nav {
+	//position: absolute;
+	//top: 55px;
+	//margin-left: 140px;
+	margin-top: .75em;
+	a {
+		color: #777;
+		text-decoration: none;
+		&:hover { color: #ccc; }
+	}
+	.selected {
+		color: #444;
+		font-weight: bold;
+		//font-style: italic;
+		//text-decoration: underline;
+	}
+}
+
+
+
 #main {
 	margin-top: 1em;
 	margin-bottom: 1em;
@@ -83,12 +113,12 @@ header {
 .row { margin: .25em; }
 
 #sign_out {
-	float: left;
-	position: absolute;
-	top: .5em;
-	right: 2em;
+	float: right;
+	//position: absolute;
+	//top: .5em;
+	//right: 2em;
 	a.sign_out {
-		color: #777;
+		color: #999;
 		&:hover { color: #444; }
 	}
 }
@@ -154,4 +184,8 @@ hr { color: #EBEBEB; }
 .notice { border: 1px solid #aa0; background-color: #ffc; }
 .error { border: 1px solid #a00; background-color: #fcc; }
 
-footer { margin-left: .25em;}
+footer { 
+	margin-left: .25em; 
+	position: relative;
+	width: 320px;
+}

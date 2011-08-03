@@ -10,7 +10,8 @@
     #container
       %header#header
         = render "layouts/header"
-        = render "layouts/session"
+        
+        = render "layouts/nav"
         
       #main{ :role => 'main' }
         = render "layouts/flashes"
@@ -18,6 +19,7 @@
         
       %footer#footer
         = render "layouts/footer"
+        = render "layouts/session"
         
     -# Javascript at the bottom for fast page loading
     = render "layouts/javascripts"

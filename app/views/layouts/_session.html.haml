@@ -1,7 +1,4 @@
-- unless user_signed_in?
-	#sign_in
-		= link_to 'Sign in with Google', user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id"), :class => "sign_in"
-- else
+- if user_signed_in?
 	#sign_out
-		%strong
+		%small
 			= link_to 'Sign out: ' + current_user.email, destroy_user_session_path, :class => "sign_out"

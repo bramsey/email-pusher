@@ -3,7 +3,11 @@
 		.accounts
 			= render @accounts
 	= link_to 'Link A Gmail Account', root_url + "oauth/google"
+	= " - "
 	- if current_user.default_notification_service_id.nil?
 		= link_to ' - Add Notifo Account', new_user_notification_service_path(current_user) + "?type=NotifoService"
 	- else
 		= link_to 'Edit Notifo Account', edit_notifo_service_path(current_user.default_notification_service_id)
+- else
+	#sign_in
+		%strong= link_to 'Sign in with Google', user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id"), :class => "sign_in"
