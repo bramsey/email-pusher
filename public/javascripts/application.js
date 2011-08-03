@@ -14,6 +14,7 @@ $(document).ready(function() {
 
 	$("#slide-toggle").click(function () {
 		$('#slidefield').slideToggle('fast');
+		$('#input_field').focus()
 		return false;
     });
 });

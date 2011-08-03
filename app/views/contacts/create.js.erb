@@ -1,10 +1,23 @@
-$(".contacts").append("<%= escape_javascript(render(:partial => "contact",
-	:locals => { :contact => @contact })) %>")
-$("#contact<%= @contact.id %>").hide(0);
-$(document).ready(function() {
-	$(':input','#contact_field')
-	 .not(':button, :submit, :reset, :hidden')
-	 .val('')
-	$("#contact_field").focus()
-});
-$("#contact<%= @contact.id %>").slideDown('fast');
+<% unless @contacts.length <= 1 %>
+	$('.contacts').append("<%= escape_javascript(render(:partial => "contact",
+		:locals => { :contact => @contact })) %>")
+	$("#contact<%= @contact.id %>").hide();
+	$("#contact<%= @contact.id %>").slideDown('fast');
+	$(document).ready(function() {
+		$('#input_field').val('')
+		$('#input_field').focus()
+	});
+<% else %>
+	$('.empty').html("<%= escape_javascript(render(:partial => "contacts",
+		:locals => { :contacts => @contacts })) %>")
+	$('#slidefield').slideToggle('fast');
+	$('#input_field').focus();
+	$(document).ready(function() {
+		$("#slide-toggle").click(function () {
+			$('#slidefield').slideToggle('fast');
+			$('#input_field').focus();
+			return false;
+	    });
+	});
+<% end %>
+$(':checkbox').iphoneStyle();

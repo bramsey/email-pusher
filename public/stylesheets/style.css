@@ -502,6 +502,17 @@ footer {
 #slidefield {
   padding-top: 1em;
   padding-bottom: 1em;
+  display: none;
+}
+
+/* line 204, ../../app/stylesheets/partials/_page.scss */
+.iPhoneCheckContainer {
+  width: 90px;
+}
+
+/* line 205, ../../app/stylesheets/partials/_page.scss */
+.iPhoneCheckHandle {
+  width: 34px;
 }
 
 /*/mediaquery*/

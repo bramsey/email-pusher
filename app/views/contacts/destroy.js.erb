@@ -1,4 +1,17 @@
-$("#contact<%= @contact.id %>").slideUp('fast');
-setTimeout(function() {
-  $("#contact<%= @contact.id %>").remove();
-}, 1000);
+<% unless @contacts.length < 1 %>
+	$("#contact<%= @contact.id %>").slideUp('fast');
+	setTimeout(function() {
+	  $("#contact<%= @contact.id %>").remove();
+	}, 1000);
+<% else %>
+	$(".contact_list").replaceWith("<%= escape_javascript(render(:partial => "empty")) %>")
+	$(".empty").hide().fadeIn('fast');
+	$(document).ready(function() {
+		$("#slide-toggle").click(function () {
+			$('#slidefield').slideToggle('fast');
+			$('#input_field').focus()
+			return false;
+	    });
+	});
+<% end %>
+

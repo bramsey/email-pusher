@@ -1,10 +1,5 @@
 - unless @contacts.empty?
-	.contacts
-		= render :partial => 'contacts', :locals => { :contacts => @contacts }
-	= render 'contact_form'
-	= link_to "Add a contact", "#", :id => "slide-toggle"
+	= render :partial => 'contacts', :locals => { :contacts => @contacts }
 - else
-	.contacts
-		= render 'empty'
-		= render 'contact_form'
+	= render 'empty'
 	
