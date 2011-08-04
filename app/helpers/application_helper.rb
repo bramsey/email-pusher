@@ -2,8 +2,12 @@ module ApplicationHelper
   
   def listen_box
     listening = current_user.listening
-    check_box_tag( "listening", "listening", listening,
-      {'data-href' => toggle_listening_user_path(current_user), :class => 'checkable' })
+    if current_user.default_notification_service &&
+       !current_user.accounts.empty? &&
+       !current_user.contacts.empty?
+      check_box_tag( "listening", "listening", listening,
+        {'data-href' => toggle_listening_user_path(current_user), :class => 'checkable' })
+    end
   end
   
   def siteNav
