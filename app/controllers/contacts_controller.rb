@@ -14,6 +14,8 @@ class ContactsController < ApplicationController
     @contact  = current_user.contacts.build(params[:contact])
     if @contact.save
       flash.now[:success] = "Contact created!"
+    else
+      flash.now[:error] = "Error creating contact. :("
     end
     
     respond_with @contact

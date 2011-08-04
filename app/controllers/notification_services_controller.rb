@@ -25,9 +25,9 @@ class NotificationServicesController < ApplicationController
     @notification_service  = NotificationService.create(params[:notification_service])
     if @notification_service.save
       flash.now[:success] = "Service created!"
-      notifo = Notifo.new("vybly","notifo_key")
-      response = notifo.subscribe_user(@notification_service.username)
-      RAILS_DEFAULT_LOGGER.error response
+      #notifo = Notifo.new("vybly","notifo_key")
+      #response = notifo.subscribe_user(@notification_service.username)
+      #RAILS_DEFAULT_LOGGER.error response
       current_user.update_attribute(:default_notification_service_id, @notification_service.id) if current_user.notification_services.all.length == 1
     end
     
@@ -42,7 +42,7 @@ class NotificationServicesController < ApplicationController
   def update
     @notification_service = NotificationService.find(params[:id])
     if params[:notifo_service][:username] == ""
-      flash[:success] = "Notification Service Deleted"
+      flash.now[:success] = "Notification Service Deleted"
       destroy
     elsif @notification_service.update_attributes(params[:notifo_service])
       flash.now[:success] = "Notification Service updated."
@@ -58,7 +58,7 @@ class NotificationServicesController < ApplicationController
   def destroy
     current_user.update_attribute(:default_notification_service, nil) if current_user.default_notification_service == @notification_service
     @notification_service.destroy
-    redirect_back_or root_path
+    respond_with @notification_service
   end
   
   private

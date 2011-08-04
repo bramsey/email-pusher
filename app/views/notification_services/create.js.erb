@@ -1,4 +1,4 @@
-$(".notifo_empty").fadeOut('fast');
+$(".notifo_empty").slideUp('fast');
 setTimeout(function() {
 	$('.notifo_empty').remove();
 	$('#account_nav').html("<%= escape_javascript(render(:partial => "accounts/nav")) %>");
@@ -12,10 +12,14 @@ setTimeout(function() {
 	});
 }, 400);
 $('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
-$('#flash').hide().fadeIn('fast');
+$('#flash').hide().fadeIn('slow');
 setTimeout(function() {
-	$('#flash').fadeOut('fast');
+	$('#flash').slideUp('slow');
 }, 3000);
-
+$('.logo_box')
+	.html("<%= escape_javascript(listen_box) %>")
+	.hide()
+	.slideDown('fast')
+$(':checkbox').iphoneStyle();
 
 
