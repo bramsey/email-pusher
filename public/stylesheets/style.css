@@ -453,7 +453,7 @@ hr {
 }
 
 /* line 174, ../../app/stylesheets/partials/_page.scss */
-.success, .error, .notice {
+.success, .error, .notice, #error_explanation {
   display: inline-block;
   padding: .5em;
   color: #666;
@@ -482,7 +482,7 @@ hr {
 }
 
 /* line 187, ../../app/stylesheets/partials/_page.scss */
-.error {
+.error, #error_explanation {
   border: 1px solid #a00;
   background-color: #fcc;
 }

@@ -1,22 +1,31 @@
-$('#input_field').select();
-$('#slidefield').slideToggle('fast');
-$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
-$('#flash').hide().fadeIn('fast');
-setTimeout(function() {
-	$('#flash').slideUp('slow');
-}, 3000);
+<% if @notification_service.errors.any? %>
+	$('#input_errors').html("<%= escape_javascript(render(:partial => 'shared/error_messages', 
+		:locals => { :object => @notification_service })) %>");
+	$('#input_errors').show();
+	$('#input_field').focus()
+	$.scrollTo('max')
+<% else %>
+	$('#input_errors').hide();
+	$('#input_field').select();
+	$('#slidefield').slideToggle('fast');
+	$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+	$('#flash').hide().fadeIn('fast');
+	setTimeout(function() {
+		$('#flash').slideUp('slow');
+	}, 3000);
 
-<% if params[:notifo_service][:username] == "" %>
-	$('#flash').after("<%= escape_javascript(render(:partial => 'notification_services/empty')) %>");
-	$(".notifo_empty")
-		.hide()
-		.fadeIn('slow')
-	$('.logo_box').slideUp('fast');
-	$(document).ready(function() {
-		$("#slide-toggle").click(function () {
-			$('#slidefield').slideToggle('fast');
-			$('#input_field').focus();
-			return false;
-	    });
-	});
+	<% if params[:notifo_service][:username] == "" %>
+		$('#flash').after("<%= escape_javascript(render(:partial => 'notification_services/empty')) %>");
+		$(".notifo_empty")
+			.hide()
+			.fadeIn('slow')
+		$('.logo_box').slideUp('fast');
+		$(document).ready(function() {
+			$("#slide-toggle").click(function () {
+				$('#slidefield').slideToggle('fast');
+				$('#input_field').focus();
+				return false;
+		    });
+		});
+	<% end %>
 <% end %>

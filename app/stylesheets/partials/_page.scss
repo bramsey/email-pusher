@@ -171,7 +171,7 @@ hr { color: #EBEBEB; }
 	margin-bottom: 1.25em;
 }
 
-.success, .error, .notice {
+.success, .error, .notice, #error_explanation {
 	display: inline-block; 
 	padding: .5em;
 	color: #666;
@@ -184,7 +184,7 @@ hr { color: #EBEBEB; }
 
 .success { border: 1px solid #0a0; background-color: #cfc; }
 .notice { border: 1px solid #aa0; background-color: #ffc; }
-.error { border: 1px solid #a00; background-color: #fcc; }
+.error, #error_explanation { border: 1px solid #a00; background-color: #fcc; }
 
 footer { 
 	margin-left: .25em; 

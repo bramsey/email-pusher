@@ -1,25 +1,26 @@
-$(".notifo_empty").slideUp('fast');
-setTimeout(function() {
-	$('.notifo_empty').remove();
-	$('#account_nav').html("<%= escape_javascript(render(:partial => "accounts/nav")) %>");
+<% if @notification_service %>
+	$(".notifo_empty").slideUp('fast');
+	setTimeout(function() {
+		$('.notifo_empty').remove();
+		$('#account_nav').html("<%= escape_javascript(render(:partial => "accounts/nav")) %>");
 
-	$(document).ready(function() {
-		$("#slide-toggle").click(function () {
-			$('#slidefield').slideToggle('fast');
-			$('#input_field').focus();
-			return false;
-	    });
-	});
-}, 400);
+		$(document).ready(function() {
+			$("#slide-toggle").click(function () {
+				$('#slidefield').slideToggle('fast');
+				$('#input_field').focus();
+				return false;
+		    });
+		});
+	}, 400);
+	$('.logo_box')
+		.html("<%= escape_javascript(listen_box) %>")
+		.hide()
+		.slideDown('fast')
+	$(':checkbox').iphoneStyle();
+<% end %>
+
 $('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
 $('#flash').hide().fadeIn('slow');
 setTimeout(function() {
 	$('#flash').slideUp('slow');
 }, 3000);
-$('.logo_box')
-	.html("<%= escape_javascript(listen_box) %>")
-	.hide()
-	.slideDown('fast')
-$(':checkbox').iphoneStyle();
-
-

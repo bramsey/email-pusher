@@ -1,29 +1,38 @@
-<% unless @contacts.length <= 1 %>
-	$('.contacts').append("<%= escape_javascript(render(:partial => "contact",
-		:locals => { :contact => @contact })) %>")
-	$("#contact<%= @contact.id %>").hide();
-	$("#contact<%= @contact.id %>").slideDown('fast');
-	$(document).ready(function() {
-		$('#input_field').val('')
-		$('#input_field').focus()
-		$.scrollTo('max')
-	});
+<% if @contact.errors.any? %>
+	$('#input_errors').html("<%= escape_javascript(render(:partial => 'shared/error_messages', 
+		:locals => { :object => @contact })) %>");
+	$('#input_errors').show();
+	$('#input_field').focus()
+	$.scrollTo('max')
 <% else %>
-	$('.empty').html("<%= escape_javascript(render(:partial => "contacts",
-		:locals => { :contacts => @contacts })) %>")
-	$('#slidefield').slideToggle('fast');
-	$('#input_field').focus();
-	$(document).ready(function() {
-		$("#slide-toggle").click(function () {
-			$('#slidefield').slideToggle('fast');
-			$('#input_field').focus();
-			return false;
-	    });
-	});
-	$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
-	$('#flash').hide().fadeIn('fast');
-	setTimeout(function() {
-		$('#flash').slideUp('slow');
-	}, 3000);
+	$('#input_errors').hide();
+	<% unless @contacts.length <= 1 %>
+		$('.contacts').append("<%= escape_javascript(render(:partial => "contact",
+			:locals => { :contact => @contact })) %>")
+		$("#contact<%= @contact.id %>").hide();
+		$("#contact<%= @contact.id %>").slideDown('fast');
+		$(document).ready(function() {
+			$('#input_field').val('')
+			$('#input_field').focus()
+			$.scrollTo('max')
+		});
+	<% else %>
+		$('.empty').html("<%= escape_javascript(render(:partial => "contacts",
+			:locals => { :contacts => @contacts })) %>")
+		$('#slidefield').slideToggle('fast');
+		$('#input_field').focus();
+		$(document).ready(function() {
+			$("#slide-toggle").click(function () {
+				$('#slidefield').slideToggle('fast');
+				$('#input_field').focus();
+				return false;
+		    });
+		});
+		$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+		$('#flash').hide().fadeIn('fast');
+		setTimeout(function() {
+			$('#flash').slideUp('slow');
+		}, 3000);
+	<% end %>
+	$(':checkbox').iphoneStyle();
 <% end %>
-$(':checkbox').iphoneStyle();

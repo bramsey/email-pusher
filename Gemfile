@@ -17,6 +17,7 @@ gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'oauth'
 gem 'notifo', :git => 'git://github.com/jot/notifo.git'
+gem 'json'
 
 group :development, :test do
   gem 'rspec-rails'
