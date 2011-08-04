@@ -1,0 +1,9 @@
+#account_nav
+	- unless current_user.default_notification_service_id.nil?
+		= render 'notification_services/edit_notifo_form'
+	- unless current_user.accounts.empty?
+		= link_to ' Link another Gmail account', root_url + "oauth/google"
+	- unless current_user.accounts.empty? || current_user.default_notification_service_id.nil?
+		= " - "
+	- unless current_user.default_notification_service_id.nil?
+		= link_to 'Edit Notifo account', "#", :id => "slide-toggle"

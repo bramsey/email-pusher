@@ -1,0 +1,21 @@
+$(".notifo_empty").fadeOut('fast');
+setTimeout(function() {
+	$('.notifo_empty').remove();
+	$('#account_nav').html("<%= escape_javascript(render(:partial => "accounts/nav")) %>");
+
+	$(document).ready(function() {
+		$("#slide-toggle").click(function () {
+			$('#slidefield').slideToggle('fast');
+			$('#input_field').focus();
+			return false;
+	    });
+	});
+}, 400);
+$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+$('#flash').hide().fadeIn('fast');
+setTimeout(function() {
+	$('#flash').fadeOut('fast');
+}, 3000);
+
+
+

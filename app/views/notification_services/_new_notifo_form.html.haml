@@ -1,0 +1,9 @@
+#input_form
+	= form_for NotificationService.new(:user_id => current_user.id,
+                                       :type => "NotifoService"), :remote => true do |f|
+		= render 'shared/error_messages', :object => f.object
+		= f.hidden_field :user_id
+		= f.hidden_field :type, :value => 'NotifoService'
+		#slidefield
+			= f.text_field :username, :id => "input_field"
+			= f.submit 'Add Account'

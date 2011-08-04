@@ -1,0 +1,6 @@
+#input_form
+	= form_for current_user.default_notification_service, :remote => true do |f|
+		= render 'shared/error_messages', :object => f.object
+		#slidefield
+			= f.text_field :username, :id => "input_field"
+			= f.submit "Update Service"

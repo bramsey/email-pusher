@@ -20,5 +20,10 @@
 			return false;
 	    });
 	});
+	$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+	$('#flash').hide().fadeIn('fast');
+	setTimeout(function() {
+		$('#flash').fadeOut('fast');
+	}, 3000);
 <% end %>
 $(':checkbox').iphoneStyle();
