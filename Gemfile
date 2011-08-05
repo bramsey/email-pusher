@@ -18,6 +18,7 @@ gem 'mime'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'oauth'
+gem 'gmail_xoauth'
 gem 'notifo', :git => 'git://github.com/jot/notifo.git'
 gem 'json'
 
