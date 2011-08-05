@@ -3,5 +3,7 @@
 		#slidefield
 			#input_errors
 				= render 'shared/error_messages', :object => f.object
-			= f.text_field :username, :id => "input_field"
-			= f.submit "Update"
+			.field
+				= f.text_field :username, :id => "input_field"
+			.actions
+				= f.submit "Update", :class => "submit"

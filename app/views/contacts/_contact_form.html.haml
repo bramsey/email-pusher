@@ -4,5 +4,7 @@
 		#slidefield
 			#input_errors
 				= render 'shared/error_messages', :object => f.object
-			= f.text_field :email, :id => "input_field"
-			= f.submit "Add Contact"
+			.field
+				= f.text_field :email, :id => "input_field"
+			.actions
+				= f.submit "Add", :class => "submit"
