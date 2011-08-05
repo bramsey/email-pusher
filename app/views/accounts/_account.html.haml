@@ -1,4 +1,4 @@
-.account
+.account(id = "account#{account.id}")
 	.account_information
 		.check_name
 			= account.username				
@@ -6,4 +6,4 @@
 			= activate_account_box_for account
 		.row
 			= link_to '- delete -', account, :method => :delete, 
-				:class => "delete_item"
+				:remote => true, :class => "delete_item"

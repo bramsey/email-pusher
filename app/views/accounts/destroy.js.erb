@@ -1,0 +1,17 @@
+<% unless @accounts.length < 1 %>
+	$("#account<%= @account.id %>").slideUp('fast');
+	setTimeout(function() {
+	  $("#account<%= @account.id %>").remove();
+	}, 1000);
+<% else %>
+	$(".account_list").replaceWith("<%= escape_javascript(render(:partial => "empty")) %>")
+	$(".empty").hide().fadeIn('fast');
+	$(document).ready(function() {
+		$("#slide-toggle").click(function () {
+			$('#slidefield').slideToggle('fast');
+			$('#input_field').focus()
+			return false;
+	    });
+	});
+<% end %>
+

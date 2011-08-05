@@ -2,9 +2,16 @@ class AccountsController < ApplicationController
   require 'starling'
   
   before_filter :authenticate_user!
-  before_filter :authorized_user, :except => [:create]
+  before_filter :authorized_user, :only => [:edit, :destroy, :update, :new]
   #after_filter  :update_listener, :only => [:toggle_active]
-
+  before_filter :load
+  
+  respond_to :html, :js
+  
+  def load
+    @user = current_user
+    @accounts = @user.accounts
+  end
   def create
     @account  = current_user.accounts.build(params[:account])
     if @account.save
@@ -19,7 +26,8 @@ class AccountsController < ApplicationController
     @account.destroy ?
       flash[:success] = "Account deleted." :
       flash[:error] = "Error deleting account."
-    redirect_to root_path
+    
+    respond_with @account
   end
   
   def edit
@@ -56,11 +64,7 @@ class AccountsController < ApplicationController
   end
   
   def index
-    @user = User.find(params[:user_id])
-    @title = "Accounts"
-    @accounts = @user.accounts
-    
-    flash.now[:notice] = "Please add an account to receive notifications." if @accounts.empty?
+    render 'pages/home'
   end
   
   def new

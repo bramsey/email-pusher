@@ -6,7 +6,6 @@ Pusher::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :users do
-    resources :accounts, :only => [:index, :new]
     resources :notification_services, :except => [:create]
     resources :notifo_services, :controller => "notification_services"
     member do
@@ -20,7 +19,7 @@ Pusher::Application.routes.draw do
     end
   end
   
-  resources :accounts, :except => [:index, :new] do
+  resources :accounts do
     member do
       post :toggle_active
       post :update_service
