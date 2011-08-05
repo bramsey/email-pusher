@@ -4,6 +4,8 @@ require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 RUBY = '[ruby_path]' # Production path
 DIR = File.dirname(__FILE__)
 
+puts "dir: #{DIR}"
+
 
 def init
   Account.all.each do |account|
