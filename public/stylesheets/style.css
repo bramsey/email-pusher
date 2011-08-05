@@ -598,17 +598,26 @@ footer {
   float: left;
 }
 
-/* line 328, ../../app/stylesheets/partials/_page.scss */
+/* line 327, ../../app/stylesheets/partials/_page.scss */
+.delete_item {
+  text-decoration: none;
+}
+/* line 329, ../../app/stylesheets/partials/_page.scss */
+.delete_item:hover {
+  color: #f00;
+}
+
+/* line 333, ../../app/stylesheets/partials/_page.scss */
 #slidefield {
   display: none;
 }
 
-/* line 332, ../../app/stylesheets/partials/_page.scss */
+/* line 337, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckContainer {
   width: 90px;
 }
 
-/* line 333, ../../app/stylesheets/partials/_page.scss */
+/* line 338, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckHandle {
   width: 34px;
 }

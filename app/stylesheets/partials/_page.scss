@@ -324,6 +324,11 @@ footer {
 	margin-bottom: 1em;
 }
 
+.delete_item {
+	text-decoration: none;
+	&:hover { color: #f00; }
+}
+
 
 #slidefield{
 	display: none;
