@@ -1,7 +1,8 @@
 <% if @contact.errors.any? %>
-	$('#input_errors').html("<%= escape_javascript(render(:partial => 'shared/error_messages', 
-		:locals => { :object => @contact })) %>");
-	$('#input_errors').show();
+	$('#input_errors')
+		.html("<%= escape_javascript(render(:partial => 'shared/error_messages', 
+			:locals => { :object => @contact })) %>");
+		.show();
 	$('#input_field').focus()
 	$.scrollTo('max')
 <% else %>
@@ -9,11 +10,9 @@
 	<% unless @contacts.length <= 1 %>
 		$('.contacts').append("<%= escape_javascript(render(:partial => "contact",
 			:locals => { :contact => @contact })) %>")
-		$("#contact<%= @contact.id %>").hide();
-		$("#contact<%= @contact.id %>").slideDown('fast');
+		$("#contact<%= @contact.id %>").hide().slideDown('fast');
 		$(document).ready(function() {
-			$('#input_field').val('')
-			$('#input_field').focus()
+			$('#input_field').val('').focus()
 			$.scrollTo('max')
 		});
 	<% else %>
@@ -28,8 +27,9 @@
 				return false;
 		    });
 		});
-		$('#flash').html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
-		$('#flash').hide().fadeIn('fast');
+		$('#flash')
+			.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+			.hide().fadeIn('fast');
 		setTimeout(function() {
 			$('#flash').slideUp('slow');
 		}, 3000);
