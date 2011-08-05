@@ -1,5 +1,5 @@
 SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://vybit.com'
+HOST_URL = 'http://www.vybit.com'
 USERNAME = ARGV[0] unless ARGV[0].nil?
 TOKEN = ARGV[1] unless ARGV[1].nil?
 SECRET = ARGV[2] unless ARGV[2].nil?
