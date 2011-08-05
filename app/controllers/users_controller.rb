@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   require 'starling'
   
-  before_filter :authenticate_user!,      :except => [:new, :create]
+  before_filter :authenticate_user!,      :except => [:new, :create, :init]
   before_filter :correct_user,      :only => [:edit, :update, :toggle_listening]
   after_filter  :update_listener, :only => [:toggle_listening]
 
