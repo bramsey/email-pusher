@@ -87,7 +87,7 @@ class AccountsController < ApplicationController
       if @account.active
         starling.set('idler_queue', 
           "start #{@account.id} #{@account.username}" +
-          " #{@account.token} #{@account.secret} #{@account.reply}") if @account.user.listening 
+          " #{@account.token} #{@account.secret}") if @account.user.listening 
       else
         starling.set('idler_queue', "stop #{@account.id}")
       end
