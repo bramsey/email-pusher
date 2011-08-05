@@ -306,7 +306,7 @@ footer {
 #account_nav { display: block; overflow: auto; }
 
 #input_field {
-	width: 190px;
+	width: 192px;
 	height: 24px;
 	@include left-round(4px);
 	font-size: 140%;
@@ -323,7 +323,7 @@ footer {
 	@include right-round(4px);
 	font-size: 140%;
 	width: 90px;
-	height: 28px;
+	height: 30px;
 }
 
 .links { float: none; clear: both; }
