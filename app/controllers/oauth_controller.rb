@@ -26,9 +26,9 @@ class OauthController < ApplicationController
       response = @access_token.get('https://www.googleapis.com/userinfo/email?alt=json')
       if response.is_a?(Net::HTTPSuccess)
         @email = JSON.parse(response.body)['data']['email']
-        RAILS_DEFAULT_LOGGER.error "response success for #{@email}"
+        logger.error "response success for #{@email}"
       else
-        RAILS_DEFAULT_LOGGER.error "could not get email: #{response.inspect}"
+        logger.error "could not get email: #{response.inspect}"
       end
       
       @account = Account.find_by_username(@email)
@@ -36,7 +36,7 @@ class OauthController < ApplicationController
         @account.update_attributes(:token => @access_token.token, :secret => @access_token.secret)
         flash["success"] = "#{@email} linked successfully."
       else
-        RAILS_DEFAULT_LOGGER.error "account not found for: #{@email}, trying to create new one."
+        logger.error "account not found for: #{@email}, trying to create new one."
         
         account_params = {
           :username => @email,
@@ -45,19 +45,21 @@ class OauthController < ApplicationController
         }
         @account = current_user.accounts.build(account_params)
         if @account.save
-          #flash[:success] = "#{@email} linked successfully."
+          flash[:success] = "#{@email} linked successfully."
         else
           flash[:error] = "Could not create account with the returned credentials"
-          RAILS_DEFAULT_LOGGER.error "could not create account for #{@email}"
+          logger.error "could not create account for #{@email}"
         end
       end
       
       session[:oauth][:access_token] = @access_token.token
       session[:oauth][:access_token_secret] = @access_token.secret
     else
-      RAILS_DEFAULT_LOGGER.error "access token not generated"
+      logger.error "access token not generated"
       flash[:error] = "Authorization denied"
     end
+    
+    session[:oauth] = {}
     
     redirect_to root_url
   end

@@ -24,8 +24,8 @@ class AccountsController < ApplicationController
 
   def destroy
     @account.destroy ?
-      flash[:success] = "Account deleted." :
-      flash[:error] = "Error deleting account."
+      flash.now[:success] = "Account deleted." :
+      flash.now[:error] = "Error deleting account."
     
     respond_with @account
   end
