@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
       User.create!(:email => data["email"], :password => Devise.friendly_token[0,20])
     end
   end
+  
+  def has_active_contact?( contact_email )
+    contact = contacts.find_by_email(contact_email)
+    contact ? contact.active : false
+  end
 end

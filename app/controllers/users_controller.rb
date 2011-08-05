@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   before_filter :authenticate_user!,      :except => [:new, :create]
   before_filter :correct_user,      :only => [:edit, :update, :toggle_listening]
-  #after_filter  :update_listener, :only => [:toggle_listening]
+  after_filter  :update_listener, :only => [:toggle_listening]
 
   def index
     @users = User.all
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
     subject = params[:subject] || "no subject provided"
     @user = User.find_by_email( recipient ) unless recipient.nil?
     unless (sender.nil? || @user.nil?)
-      if true # replace with check for sender in user's contacts.
-        @user.default_notification_service.notify(sender, subject)
+      if @user.has_active_contact?(sender)
+        @user.default_notification_service.notify(sender, subject) if @user.default_notification_service_id
         @response = "notification sent at #{Time.now}"
         render :text => @response
       else

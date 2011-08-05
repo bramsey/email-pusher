@@ -3,8 +3,8 @@ class AccountsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :authorized_user, :only => [:edit, :destroy, :update, :new]
-  #after_filter  :update_listener, :only => [:toggle_active]
-  before_filter :load
+  before_filter :load, :except => [:toggle_active, :update_service]
+  after_filter  :update_listener, :only => [:toggle_active]
   
   respond_to :html, :js
   
@@ -12,6 +12,7 @@ class AccountsController < ApplicationController
     @user = current_user
     @accounts = @user.accounts
   end
+  
   def create
     @account  = current_user.accounts.build(params[:account])
     if @account.save

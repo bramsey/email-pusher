@@ -1,5 +1,5 @@
 SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://dev.vybly.com'
+HOST_URL = 'http://vybit.com'
 USERNAME = ARGV[0] unless ARGV[0].nil?
 TOKEN = ARGV[1] unless ARGV[1].nil?
 SECRET = ARGV[2] unless ARGV[2].nil?
@@ -90,22 +90,22 @@ class MailReader
       puts "directFlag: #{directFlag.to_s}"
       
       if processFlag
-        if directFlag
-          # Call direct notification of recipient without autoreply
-          priority ||= "1"
-          response = send_init_with_priority( mail.from.first, 
-                                              USERNAME,
-                                              priority,
-                                              mail.subject )
-          puts "direct response: #{response}"
-          @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
-        end
-      end  
+        directFlag ?
+          priority ||= "1" :
+          priority ||= "3"
+          
+        response = send_init_with_priority( mail.from.first, 
+                                            USERNAME,
+                                            priority,
+                                            mail.subject )
+        puts "direct response: #{response}"
+        #@imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
+      end 
     end
   end
   
   def send_init_with_priority( sender, recipient, priority, subject)
-    url = URI.parse("#{HOST_URL}/messages/init")
+    url = URI.parse("#{HOST_URL}/users/init")
     subject ||= ""
     post_args = { :sender => sender,
                   :recipient => recipient,
