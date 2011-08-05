@@ -44,9 +44,11 @@ class UsersController < ApplicationController
         logger.info "response: #{@response}<"
         render :text => @response
       else
+        logger.error "no active contact."
         render :text => 'denied'
       end 
     else
+      logger.error "sender or user nil."
       render :text => 'denied'
     end
   end
