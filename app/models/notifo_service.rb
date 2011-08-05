@@ -4,8 +4,8 @@ class NotifoService < NotificationService
   def notify( sender, subject )
     # Overload NotificationService notify method to trigger Notifo notification.
     
-    notifo = Notifo.new("billiamram","notifo_key")
-    #notifo = Notifo.new("vybly", "notifo_key")
+    #notifo = Notifo.new("billiamram","notifo_key")
+    notifo = Notifo.new("vybly", "notifo_key")
     notifo.post(username, subject, "New message from #{sender}!")
     
   end
