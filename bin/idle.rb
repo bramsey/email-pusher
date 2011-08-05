@@ -115,7 +115,7 @@ class MailReader
     response, data = Net::HTTP.post_form(url, post_args)
     
     response.code == "200" ?
-      data : "#{response}"
+      data : "#{response.code}"
   end
 
   def tidy
