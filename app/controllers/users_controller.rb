@@ -41,6 +41,7 @@ class UsersController < ApplicationController
       if @user.has_active_contact?(sender)
         @user.default_notification_service.notify(sender, subject) if @user.default_notification_service_id
         @response = "notification sent at #{Time.now}"
+        logger.info "response: #{@response}<"
         render :text => @response
       else
         render :text => 'denied'
