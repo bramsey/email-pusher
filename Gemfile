@@ -13,6 +13,8 @@ gem 'jquery-rails'
 gem "html5-boilerplate"
 gem 'starling'
 gem 'devise'
+gem 'daemons'
+gem 'mime'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'oauth'
