@@ -11,6 +11,9 @@ Pusher::Application.routes.draw do
     member do
       post :toggle_listening
     end
+    collection do
+      post :init
+    end
   end
   
   resources :contacts do
