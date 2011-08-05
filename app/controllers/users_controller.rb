@@ -32,11 +32,13 @@ class UsersController < ApplicationController
   end
   
   def init
+    logger.info "starting init"
     sender = params[:sender]
     recipient = params[:recipient]
     priority = params[:priority]
     subject = params[:subject] || "no subject provided"
     @user = User.find_by_email( recipient ) unless recipient.nil?
+    logger.info "assigned @user."
     unless (sender.nil? || @user.nil?)
       if @user.has_active_contact?(sender)
         @user.default_notification_service.notify(sender, subject) if @user.default_notification_service_id
@@ -44,13 +46,14 @@ class UsersController < ApplicationController
         logger.info "response: #{@response}<"
         render :text => @response
       else
-        logger.error "no active contact."
+        logger.info "no active contact."
         render :text => 'denied'
       end 
     else
-      logger.error "sender or user nil."
+      logger.info "sender or user nil."
       render :text => 'denied'
     end
+    logger.info "end of init."
   end
 
   def destroy
