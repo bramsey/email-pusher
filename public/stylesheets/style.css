@@ -412,29 +412,28 @@ nav {
 
 /* line 237, ../../app/stylesheets/partials/_page.scss */
 #sign_in {
-  padding-left: .2em;
-  margin-top: .5em;
+  padding-left: .1em;
 }
 
-/* line 242, ../../app/stylesheets/partials/_page.scss */
+/* line 241, ../../app/stylesheets/partials/_page.scss */
 .check {
   width: 300px;
   display: inline-block;
   position: relative;
 }
 
-/* line 248, ../../app/stylesheets/partials/_page.scss */
+/* line 247, ../../app/stylesheets/partials/_page.scss */
 .check_name {
   display: inline-block;
 }
 
-/* line 252, ../../app/stylesheets/partials/_page.scss */
+/* line 251, ../../app/stylesheets/partials/_page.scss */
 .logo_box {
   margin-top: .5em;
   margin-left: .2em;
 }
 
-/* line 257, ../../app/stylesheets/partials/_page.scss */
+/* line 256, ../../app/stylesheets/partials/_page.scss */
 .right_box {
   position: absolute;
   top: -2px;
@@ -442,12 +441,12 @@ nav {
   display: inline-block;
 }
 
-/* line 264, ../../app/stylesheets/partials/_page.scss */
+/* line 263, ../../app/stylesheets/partials/_page.scss */
 hr {
   color: #EBEBEB;
 }
 
-/* line 266, ../../app/stylesheets/partials/_page.scss */
+/* line 265, ../../app/stylesheets/partials/_page.scss */
 .account, .contact {
   min-height: 30px;
   border-bottom: 1px solid #EBEBEB;
@@ -455,13 +454,13 @@ hr {
   position: relative;
 }
 
-/* line 273, ../../app/stylesheets/partials/_page.scss */
+/* line 272, ../../app/stylesheets/partials/_page.scss */
 .accounts, .contacts {
   border-top: 1px solid #EBEBEB;
   margin-bottom: 1.25em;
 }
 
-/* line 281, ../../app/stylesheets/partials/_page.scss */
+/* line 280, ../../app/stylesheets/partials/_page.scss */
 .success, .error, .notice, #error_explanation {
   display: block;
   padding: .5em;
@@ -476,53 +475,53 @@ hr {
   border-radius: 2px;
   max-width: 305px;
 }
-/* line 289, ../../app/stylesheets/partials/_page.scss */
+/* line 288, ../../app/stylesheets/partials/_page.scss */
 .success a, .error a, .notice a, #error_explanation a {
   color: #000;
 }
-/* line 289, ../../app/stylesheets/partials/_page.scss */
+/* line 288, ../../app/stylesheets/partials/_page.scss */
 .success a:hover, .error a:hover, .notice a:hover, #error_explanation a:hover {
   color: #00c;
 }
 
-/* line 292, ../../app/stylesheets/partials/_page.scss */
+/* line 291, ../../app/stylesheets/partials/_page.scss */
 .success {
   border: 1px solid #0a0;
   background-color: #cfc;
 }
 
-/* line 293, ../../app/stylesheets/partials/_page.scss */
+/* line 292, ../../app/stylesheets/partials/_page.scss */
 .notice {
   border: 1px solid #aa0;
   background-color: #ffc;
 }
 
-/* line 294, ../../app/stylesheets/partials/_page.scss */
+/* line 293, ../../app/stylesheets/partials/_page.scss */
 .error, #error_explanation {
   border: 1px solid #a00;
   background-color: #fcc;
 }
 
-/* line 296, ../../app/stylesheets/partials/_page.scss */
+/* line 295, ../../app/stylesheets/partials/_page.scss */
 footer {
   margin-left: .25em;
   position: relative;
 }
 
-/* line 301, ../../app/stylesheets/partials/_page.scss */
+/* line 300, ../../app/stylesheets/partials/_page.scss */
 #input_form {
   float: none;
   display: block;
   position: relative;
 }
 
-/* line 307, ../../app/stylesheets/partials/_page.scss */
+/* line 306, ../../app/stylesheets/partials/_page.scss */
 #account_nav {
   display: block;
   overflow: auto;
 }
 
-/* line 309, ../../app/stylesheets/partials/_page.scss */
+/* line 308, ../../app/stylesheets/partials/_page.scss */
 #input_field {
   width: 212px;
   height: 24px;
@@ -537,7 +536,7 @@ footer {
   color: #555;
 }
 
-/* line 318, ../../app/stylesheets/partials/_page.scss */
+/* line 317, ../../app/stylesheets/partials/_page.scss */
 .submit {
   background: #33cc33;
   /* fallback/image non-cover color */
@@ -603,48 +602,48 @@ footer {
   box-shadow: inset 0 0 8px 4px #248f24, 0 1px 0 0 #eeeeee;
 }
 
-/* line 330, ../../app/stylesheets/partials/_page.scss */
+/* line 329, ../../app/stylesheets/partials/_page.scss */
 .links {
   float: none;
   clear: both;
 }
 
-/* line 332, ../../app/stylesheets/partials/_page.scss */
+/* line 331, ../../app/stylesheets/partials/_page.scss */
 .field {
   clear: both;
   overflow: auto;
   margin-bottom: 1em;
 }
-/* line 333, ../../app/stylesheets/partials/_page.scss */
+/* line 332, ../../app/stylesheets/partials/_page.scss */
 .field input {
   float: left;
 }
 
-/* line 339, ../../app/stylesheets/partials/_page.scss */
+/* line 338, ../../app/stylesheets/partials/_page.scss */
 .delete_item {
   text-decoration: none;
 }
-/* line 341, ../../app/stylesheets/partials/_page.scss */
+/* line 340, ../../app/stylesheets/partials/_page.scss */
 .delete_item:hover {
   color: #f00;
 }
 
-/* line 344, ../../app/stylesheets/partials/_page.scss */
+/* line 343, ../../app/stylesheets/partials/_page.scss */
 p {
   margin-bottom: .5em;
 }
 
-/* line 347, ../../app/stylesheets/partials/_page.scss */
+/* line 346, ../../app/stylesheets/partials/_page.scss */
 #slidefield {
   display: none;
 }
 
-/* line 351, ../../app/stylesheets/partials/_page.scss */
+/* line 350, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckContainer {
   width: 90px;
 }
 
-/* line 352, ../../app/stylesheets/partials/_page.scss */
+/* line 351, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckHandle {
   width: 34px;
 }
