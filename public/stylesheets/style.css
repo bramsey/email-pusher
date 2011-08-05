@@ -603,7 +603,7 @@ footer {
 #slidefield {
   padding-top: .5em;
   padding-bottom: 2em;
-  display: block;
+  display: none;
 }
 
 /* line 329, ../../app/stylesheets/partials/_page.scss */

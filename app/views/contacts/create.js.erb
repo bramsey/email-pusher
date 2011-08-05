@@ -28,8 +28,9 @@
 		    });
 		});
 		$('#flash')
-			.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
-			.hide().fadeIn('fast');
+			.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>")
+			.hide()
+			.fadeIn('fast')
 		setTimeout(function() {
 			$('#flash').slideUp('slow');
 		}, 3000);

@@ -20,9 +20,9 @@
 <% end %>
 
 $('#flash')
-	.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>");
+	.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>")
 	.hide()
-	.fadeIn('slow');
+	.fadeIn('slow')
 setTimeout(function() {
 	$('#flash').slideUp('slow');
 }, 3000);
