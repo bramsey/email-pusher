@@ -25,11 +25,6 @@ strong, th {
   font-weight: bold;
 }
 
-#logo {
-	color: #444;
-	text-decoration: none;
-}
-
 small {
   // Use font-size mixin to convert to percentage for YUI
   // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
@@ -147,10 +142,31 @@ input:invalid, textarea:invalid {
 
 //----------------
 
-body {}
+div { width: auto; }
+
+body { background-color: $back-color; -webkit-text-size-adjust: 100%;}
+
+body {
+	width: 320px;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body {
+		width: 480px;
+	}
+}
+
+//.row, #flash, .contact_list, .contacts, .contact, .contact_information { width: 100%; }
 
 #container {
-	margin: 1em;
+	margin: .5em;
+	width: 96%;
+}
+
+
+#logo {
+	color: #444;
+	text-decoration: none;
 }
 
 header {
@@ -203,11 +219,9 @@ nav {
 
 .account_information, .contact_information {
 	margin-bottom: 1.5em;
-	width: 320px;
 	position: relative;
 }
 
-.row { margin: .25em; }
 
 #sign_out {
 	float: right;
@@ -253,12 +267,10 @@ hr { color: #EBEBEB; }
 	min-height: 30px;
 	border-bottom: 1px solid #EBEBEB;
 	padding-top: 3em;
-	width: 320px;
 	position: relative;
 }
 
 .accounts, .contacts {
-	width: 320px;
 	border-top: 1px solid #EBEBEB;
 	margin-bottom: 1.25em;
 }
@@ -284,7 +296,6 @@ hr { color: #EBEBEB; }
 footer { 
 	margin-left: .25em; 
 	position: relative;
-	width: 320px;
 }
 
 #input_form, {
@@ -296,7 +307,7 @@ footer {
 #account_nav { display: block; overflow: auto; }
 
 #input_field {
-	width: 225px;
+	width: 212px;
 	height: 24px;
 	@include left-round(4px);
 	font-size: 140%;
