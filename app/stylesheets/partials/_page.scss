@@ -274,6 +274,7 @@ hr { color: #EBEBEB; }
 	margin-bottom: 1em;
 	@include border-radius(2px);
 	max-width: 305px;
+	a { color: #000; &:hover { color: #00c; }}
 }
 
 .success { border: 1px solid #0a0; background-color: #cfc; }
@@ -328,6 +329,8 @@ footer {
 	text-decoration: none;
 	&:hover { color: #f00; }
 }
+
+p { margin-bottom: .5em; }
 
 
 #slidefield{

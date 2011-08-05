@@ -1,6 +1,9 @@
 .notifo_empty
 	.notice
-		Please
-		= link_to 'add a Notifo account', "#", :id => "slide-toggle"
-		= " to get push notifications to your phone."
+		%p
+			Please
+			= link_to 'add a Notifo account', "#", :id => "slide-toggle"
+			= " to get push notifications to your phone."
+		Don't have Notifo?
+		= link_to 'Get it here.', 'http://itunes.apple.com/us/app/notifo/id359063459?mt=8', :target => 'blank'
 	= render 'notification_services/new_notifo_form'
