@@ -523,7 +523,7 @@ footer {
 
 /* line 308, ../../app/stylesheets/partials/_page.scss */
 #input_field {
-  width: 212px;
+  width: 188px;
   height: 22px;
   -moz-border-radius: 4px 0 0 4px;
   -webkit-border-radius: 4px 0 0 4px;
@@ -535,9 +535,10 @@ footer {
   border: 1px solid #999;
   color: #555;
   -webkit-appearance: none;
+  padding: 5px;
 }
 
-/* line 318, ../../app/stylesheets/partials/_page.scss */
+/* line 319, ../../app/stylesheets/partials/_page.scss */
 .submit {
   background: #33cc33;
   /* fallback/image non-cover color */
@@ -603,48 +604,48 @@ footer {
   box-shadow: inset 0 0 8px 4px #248f24, 0 1px 0 0 #eeeeee;
 }
 
-/* line 330, ../../app/stylesheets/partials/_page.scss */
+/* line 331, ../../app/stylesheets/partials/_page.scss */
 .links {
   float: none;
   clear: both;
 }
 
-/* line 332, ../../app/stylesheets/partials/_page.scss */
+/* line 333, ../../app/stylesheets/partials/_page.scss */
 .field {
   clear: both;
   overflow: auto;
   margin-bottom: 1em;
 }
-/* line 333, ../../app/stylesheets/partials/_page.scss */
+/* line 334, ../../app/stylesheets/partials/_page.scss */
 .field input {
   float: left;
 }
 
-/* line 339, ../../app/stylesheets/partials/_page.scss */
+/* line 340, ../../app/stylesheets/partials/_page.scss */
 .delete_item {
   text-decoration: none;
 }
-/* line 341, ../../app/stylesheets/partials/_page.scss */
+/* line 342, ../../app/stylesheets/partials/_page.scss */
 .delete_item:hover {
   color: #f00;
 }
 
-/* line 344, ../../app/stylesheets/partials/_page.scss */
+/* line 345, ../../app/stylesheets/partials/_page.scss */
 p {
   margin-bottom: .5em;
 }
 
-/* line 347, ../../app/stylesheets/partials/_page.scss */
+/* line 348, ../../app/stylesheets/partials/_page.scss */
 #slidefield {
   display: none;
 }
 
-/* line 351, ../../app/stylesheets/partials/_page.scss */
+/* line 352, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckContainer {
   width: 90px;
 }
 
-/* line 352, ../../app/stylesheets/partials/_page.scss */
+/* line 353, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckHandle {
   width: 34px;
 }
