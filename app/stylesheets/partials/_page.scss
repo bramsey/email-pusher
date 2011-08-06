@@ -306,7 +306,8 @@ footer {
 #account_nav { display: block; overflow: auto; }
 
 #input_field {
-	width: 188px;
+	//width: 188px;
+	width: 66%;
 	height: 22px;
 	@include left-round(4px);
 	font-size: 140%;
@@ -324,7 +325,8 @@ footer {
 	//@include shadow;
 	@include right-round(4px);
 	font-size: 140%;
-	width: 90px;
+	//width: 90px;
+	width: 30%;
 	height: 34px;
 }
 
