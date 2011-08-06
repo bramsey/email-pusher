@@ -9,6 +9,10 @@ $('.checkable').live('change', function() {
 	  });
 });
 
+$('#flash').live('click', function() {
+  	$('#flash').slideUp('medium');
+});
+
 $(document).ready(function() {
     $(':checkbox').iphoneStyle();
 
@@ -17,4 +21,8 @@ $(document).ready(function() {
 		$('#input_field').focus()
 		return false;
     });
+
+	setTimeout(function() {
+		$('#flash').slideUp('medium');
+	}, 5000);
 });

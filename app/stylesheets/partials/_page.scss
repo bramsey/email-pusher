@@ -156,13 +156,14 @@ body {
 	}
 }
 
-//.row, #flash, .contact_list, .contacts, .contact, .contact_information { width: 100%; }
+//.row, #flash, .contact_list, .contacts, .contact, .contact_information, .empty, .notice { width: 100%; }
 
 #container {
 	margin: .5em;
 	width: 96%;
 }
 
+.empty { display: block; }
 
 #logo {
 	color: #444;
@@ -279,12 +280,14 @@ hr { color: #EBEBEB; }
 
 .success, .error, .notice, #error_explanation {
 	display: block; 
-	padding: .5em;
+	padding-left: .5em;
+	padding-right: 0;
+	padding-top: .5em;
+	padding-bottom: .5em;
 	color: #666;
 	clear: both;
 	margin-bottom: 1em;
 	@include border-radius(2px);
-	max-width: 305px;
 	a { color: #000; &:hover { color: #00c; }}
 }
 
@@ -319,8 +322,8 @@ footer {
 
 .submit {
 	@include button(#3c3);
-	padding-left: 6px;
-	padding-right: 6px;
+	//padding-left: 6px;
+	//padding-right: 6px;
 	//@include box-shadow;
 	//@include shadow;
 	@include right-round(4px);
