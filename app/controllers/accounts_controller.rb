@@ -85,9 +85,9 @@ class AccountsController < ApplicationController
     def update_listener
       starling = Starling.new('localhost:22122')
       if @account.active
-        starling.set('idler_queue', 
-          "start #{@account.id} #{@account.username}" +
-          " #{@account.token} #{@account.secret}") if @account.user.listening 
+        starling.set('idler_queue', %{
+          start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}
+          }) if @account.user.listening 
       else
         starling.set('idler_queue', "stop #{@account.id}")
       end
