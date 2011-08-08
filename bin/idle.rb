@@ -59,7 +59,7 @@ class MailReader
 
   def process
     puts "checking #{USERNAME}."
-    msg_ids = @imap.search(["UNSEEN"])
+    msg_ids = @imap.search(["UNSEEN", "UNFLAGGED"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
 
@@ -99,7 +99,7 @@ class MailReader
                                             priority,
                                             mail.subject )
         puts "direct response: #{response}"
-        #@imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
+        @imap.store msg_id, '+FLAGS', [:flagged] unless response == "Ignore"
       end 
     end
   end
