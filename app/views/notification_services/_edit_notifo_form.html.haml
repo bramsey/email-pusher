@@ -1,8 +1,3 @@
 #input_form
 	= form_for current_user.default_notification_service, :remote => true do |f|
-		#slidefield
-			#input_errors
-				= render 'shared/error_messages', :object => f.object
-			.field
-				= f.text_field :username, :id => "input_field"
-				= f.submit "Update", :class => "submit"
+		= render :partial => 'shared/slidefield', :locals => {:f => f, :submit_text => 'Update'}

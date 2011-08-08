@@ -1,0 +1,9 @@
+#slidefield
+	#input_errors
+		= render 'shared/error_messages', :object => f.object
+	.field
+		= f.text_field :email, 
+					   :id => "input_field", 
+					   :autocorrect => "off",
+					   :autocapitalize => "off"
+		= f.submit "#{submit_text}", :class => "submit"

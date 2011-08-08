@@ -1,9 +1,4 @@
 #input_form
 	= form_for current_user.contacts.build(:user_id => current_user.id), :remote => true do |f|
 		= f.hidden_field :user_id
-		#slidefield
-			#input_errors
-				= render 'shared/error_messages', :object => f.object
-			.field
-				= f.text_field :email, :id => "input_field"
-				= f.submit "Add", :class => "submit"
+		= render :partial => 'shared/slidefield', :locals => {:f => f, :submit_text => 'Add'}
