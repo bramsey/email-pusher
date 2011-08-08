@@ -3,4 +3,7 @@
                                        :type => "NotifoService"), :remote => true do |f|
 		= f.hidden_field :user_id
 		= f.hidden_field :type, :value => 'NotifoService'
-		= render :partial => 'shared/slidefield', :locals => {:f => f, :submit_text => 'Add'}
+		= render :partial => 'shared/slidefield', 
+				 :locals => {:f => f, 
+							 :field => :username,
+							 :submit_text => 'Add'}
