@@ -99,7 +99,7 @@ class MailReader
                                             priority,
                                             mail.subject )
         puts "direct response: #{response}"
-        @imap.store msg_id, '+FLAGS', [:flagged] unless response == "Ignore"
+        @imap.store msg_id, '+FLAGS', [:flagged] unless response == "denied"
       end 
     end
   end
