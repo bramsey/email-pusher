@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :authorized_user, :except => [:index, :new, :create]
+  before_filter :authorized_user, :except => [:index, :new, :create, :import]
   before_filter :load
   
   respond_to :html, :js
@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    params[:contact][:email] = params[:contact][:email].downcase
     @contact  = current_user.contacts.build(params[:contact])
     if @contact.save
       flash.now[:success] = "Contact created!"
@@ -55,6 +56,11 @@ class ContactsController < ApplicationController
   end
   
   def index
+  end
+  
+  def import
+    contact_emails = @contacts.map { |contact| contact.email }
+    @emails = @user.accounts.first.contacts - contact_emails
   end
   
   def new

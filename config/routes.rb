@@ -20,6 +20,9 @@ Pusher::Application.routes.draw do
     member do
       post :toggle_active
     end
+    collection do
+      get :import
+    end
   end
   
   resources :accounts do
