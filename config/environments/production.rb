@@ -50,5 +50,14 @@ Pusher::Application.configure do
   config.after_initialize do
     Configuration.notifo_service_user = 'vybit'
     Configuration.notifo_service_key = 'fa9c05b25c34c8d5c364c8c9b400586ce5c60e4f'
+    Configuration.google_consumer_key = 'anonymous'
+    Configuration.google_consumer_secret = 'anonymous'
+    Configuration.google_consumer_params = {
+      :site => "https://www.google.com",
+      :request_token_path => '/accounts/OAuthGetRequestToken?scope=https://mail.google.com/%20https://www.googleapis.com/auth/userinfo%23email%20https://www.google.com/m8/feeds/',
+      :access_token_path => '/accounts/OAuthGetAccessToken',
+      :authorize_path => '/accounts/OAuthAuthorizeToken',
+      :signature_method => 'HMAC-SHA1'
+    }
   end
 end

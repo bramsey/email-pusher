@@ -68,17 +68,10 @@ class OauthController < ApplicationController
     
     def init_session
       session[:oauth] ||= {}
-      
-      consumer_key = 'anonymous'
-      consumer_secret = 'anonymous'
 
-      @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret,
-        :site => "https://www.google.com",
-        :request_token_path => '/accounts/OAuthGetRequestToken?scope=https://mail.google.com/%20https://www.googleapis.com/auth/userinfo%23email%20https://www.google.com/m8/feeds/',
-        :access_token_path => '/accounts/OAuthGetAccessToken',
-        :authorize_path => '/accounts/OAuthAuthorizeToken',
-        :signature_method => 'HMAC-SHA1'
-      )
+      @consumer ||= OAuth::Consumer.new(Configuration.google_consumer_key, 
+                                        Configuration.google_consumer_secret,
+                                        Configuration.google_consumer_params)
 
       if !session[:oauth][:request_token].nil? && !session[:oauth][:request_token_secret].nil?
         @request_token = OAuth::RequestToken.new(@consumer, session[:oauth][:request_token], session[:oauth][:request_token_secret])
