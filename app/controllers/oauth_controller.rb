@@ -74,7 +74,12 @@ class OauthController < ApplicationController
 
       @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret,
         :site => "https://www.google.com",
-        :request_token_path => '/accounts/OAuthGetRequestToken?scope=https://mail.google.com/%20https://www.googleapis.com/auth/userinfo%23email',
+        :request_token_path => %{
+          /accounts/OAuthGetRequestToken?scope=
+          https://mail.google.com/%20
+          https://www.googleapis.com/auth/userinfo%23email%20
+          https://www.google.com/m8/feeds/
+        },
         :access_token_path => '/accounts/OAuthGetAccessToken',
         :authorize_path => '/accounts/OAuthAuthorizeToken',
         :signature_method => 'HMAC-SHA1'
