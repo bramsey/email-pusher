@@ -27,7 +27,8 @@ class Account < ActiveRecord::Base
       next unless entry['gd$email']
       entry['gd$email'].first['address'].downcase
     end
-    emails.compact!.sort!
+    emails.compact!
+    emails.sort!
   end
   
   private

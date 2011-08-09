@@ -60,7 +60,7 @@ class ContactsController < ApplicationController
   
   def import
     contact_emails = @contacts.map { |contact| contact.email }
-    @emails = @user.accounts.first.contacts - contact_emails
+    @emails = @user.accounts.map {|account| account.contacts }.flatten - contact_emails
   end
   
   def new
