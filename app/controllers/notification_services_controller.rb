@@ -25,6 +25,7 @@ class NotificationServicesController < ApplicationController
   def create
     username = params[:notification_service][:username]
     response = verify_notifo(username)
+    flash.now[:error] = "Unable to connect to Notifo." unless response
     if response['status'] == "success"
       @notification_service  = NotificationService.create(params[:notification_service])
       if @notification_service.save
@@ -55,6 +56,7 @@ class NotificationServicesController < ApplicationController
       destroy
     else
       response = verify_notifo(username)
+      flash.now[:error] = "Unable to connect to Notifo." unless response
       if response['status'] == "success"
         @notification_service.update_attributes(params[:notifo_service]) ?
           flash.now[:success] = "Notification Service updated." :
