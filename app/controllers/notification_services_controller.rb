@@ -93,7 +93,7 @@ class NotificationServicesController < ApplicationController
     end
     
     def verify_notifo( username )
-      notifo = Notifo.new("vybit", "fa9c05b25c34c8d5c364c8c9b400586ce5c60e4f")
+      notifo = Notifo.new(Configuration.notifo_service_user, Configuration.notifo_service_key)
       response = JSON( notifo.subscribe_user( username ) )
       #logger.info "response code: >#{response['response_code']}<"
     end

@@ -46,4 +46,9 @@ Pusher::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.after_initialize do
+    Configuration.notifo_service_user = 'vybit'
+    Configuration.notifo_service_key = 'fa9c05b25c34c8d5c364c8c9b400586ce5c60e4f'
+  end
 end
