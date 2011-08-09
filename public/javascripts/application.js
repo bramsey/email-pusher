@@ -14,7 +14,7 @@ $('#flash').live('click', function() {
 });
 
 $(document).ready(function() {
-    $(':checkbox').iphoneStyle();
+    $('.checkable').iphoneStyle();
 
 	$("#slide-toggle").click(function () {
 		$('#slidefield').slideToggle('fast');
