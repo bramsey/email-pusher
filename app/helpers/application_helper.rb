@@ -22,7 +22,7 @@ module ApplicationHelper
   end
   
   def link(label, path)
-    if request.fullpath == path
+    if request.fullpath == path || label.downcase == params[:controller]
       link_to label, path, :class => "selected"
     else
       link_to label, path
