@@ -9,6 +9,27 @@ class Account < ActiveRecord::Base
   validates :username, :presence => true
   validates :user_id, :presence => true
   
+  def contacts
+    require 'oauth'
+    require 'oauth/consumer'
+    require 'json'
+    
+    consumer ||= OAuth::Consumer.new(Configuration.google_consumer_key, 
+                                      Configuration.google_consumer_secret,
+                                      Configuration.google_consumer_params)
+    
+    access_token = OAuth::AccessToken.new(consumer, token, secret)
+    
+    response = access_token.get("https://www.google.com/m8/feeds/contacts/#{username}/full?alt=json&max-results=10000")
+    results = JSON.parse(response.body)['feed']
+    
+    emails = results['entry'].map do |entry|
+      next unless entry['gd$email']
+      entry['gd$email'].first['address'].downcase
+    end
+    emails.compact!.sort!
+  end
+  
   private
     
     def set_default_notification_service
