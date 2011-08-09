@@ -6,7 +6,7 @@ class NotifoService < NotificationService
     
     #notifo = Notifo.new("billiamram","notifo_key")
     notifo = Notifo.new("vybit", "fa9c05b25c34c8d5c364c8c9b400586ce5c60e4f")
-    notifo.post(username, subject, "New message from #{sender}!")
+    notifo.post(username, subject, "New email from #{sender}!")
     
   end
   
