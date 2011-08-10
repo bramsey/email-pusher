@@ -160,8 +160,11 @@ body {
 
 #container {
 	margin: .5em;
+	margin-top: 126px;
 	width: 96%;
 }
+
+.readjust { margin-top: -126px; }
 
 .empty { display: block; }
 
@@ -172,6 +175,28 @@ body {
 
 header {
 	h1 { font-size: 220%; }
+	margin-top: 0;
+	background-color: #fff;
+	padding: .5em;
+	//border: 1px solid #000;
+}
+
+#topNav {
+	margin-top: 120px;
+	background-color: #fff;
+	padding-bottom: 1em;
+}
+.floating {
+	position: fixed;
+	top: 0;
+	float: left;
+	clear: both;
+	z-index:999;
+	width: 320px;
+}
+
+#import {
+	margin-top: 2em;
 }
 
 #logo {
@@ -358,3 +383,4 @@ p { margin-bottom: .5em; }
 
 .iPhoneCheckContainer { width: 90px; }
 .iPhoneCheckHandle { width: 34px; }
+
