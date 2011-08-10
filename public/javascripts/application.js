@@ -15,6 +15,14 @@ $('#flash').live('click', function() {
 
 $(document).ready(function() {
     $('.checkable').iphoneStyle();
+	$('.checklist').shiftcheckbox();
+	
+	$('#checkAll').click(
+	   function()
+	   {
+	      $(".checklist").attr('checked', $('#checkAll').is(':checked'));   
+	   }
+	)
 
 	$("#slide-toggle").click(function () {
 		$('#slidefield').slideToggle('fast');

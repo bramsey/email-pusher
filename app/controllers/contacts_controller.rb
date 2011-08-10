@@ -61,6 +61,9 @@ class ContactsController < ApplicationController
   def import
     contact_emails = @contacts.map { |contact| contact.email }
     @emails = @user.accounts.map {|account| account.contacts }.flatten - contact_emails
+    @emails.compact!
+    @emails.uniq!
+    @emails.sort!
   end
   
   def new

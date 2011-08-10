@@ -1,4 +1,7 @@
-%h1= "#{@emails.length} Accounts:"
+%p
+	%h1
+		= check_box_tag('checkAll', 'checkAll', false)
+		= "#{@emails.length} Accounts:"
 
 - @emails.each do |email|
-	%p= check_box_tag("contact_#{email}", "contact_#{email}", false) + ' ' + label_tag("contact_#{email}", email )
+	%p= check_box_tag("contact_#{email}", email, false, :class => 'checklist') + ' ' + label_tag("contact_#{email}", email )

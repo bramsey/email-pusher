@@ -21,6 +21,7 @@ class Account < ActiveRecord::Base
     access_token = OAuth::AccessToken.new(consumer, token, secret)
     
     response = access_token.get("https://www.google.com/m8/feeds/contacts/#{username}/full?alt=json&max-results=10000")
+
     results = JSON.parse(response.body)['feed']
     
     emails = results['entry'].map do |entry|
@@ -28,7 +29,7 @@ class Account < ActiveRecord::Base
       entry['gd$email'].first['address'].downcase
     end
     emails.compact!
-    emails.sort!
+    emails
   end
   
   private
