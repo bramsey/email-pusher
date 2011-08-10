@@ -1,5 +1,4 @@
-= form_tag('#', :id => "listForm") do
-	= submit_tag('Add to Contacts')
+= link_to 'Add to Contacts', '#', :id => "listSubmit", :class => "button add"
 %p
 	%h1
 		= check_box_tag('checkAll', 'checkAll', false)

@@ -24,7 +24,7 @@ $(document).ready(function() {
 	   }
 	)
 	
-	$('#listForm').submit(function() {
+	$('#listSubmit').click(function() {
 		var vals = [];
 		$(".checklist:checked").each(function(index, value){
 		    vals[index] = value.value;
