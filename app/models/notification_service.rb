@@ -4,7 +4,7 @@ class NotificationService < ActiveRecord::Base
   
   attr_accessible :user_id, :type, :username
   
-  def notify( msg )
+  def notify( sender, subject, recipient )
     # Method template for overloading.
   end
   

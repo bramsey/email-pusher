@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     logger.info "assigned @user."
     unless (sender.nil? || @user.nil?)
       if @user.has_active_contact?(sender)
-        @user.default_notification_service.notify(sender, subject) if @user.default_notification_service_id
+        @user.default_notification_service.notify(sender, subject, recipient) if @user.default_notification_service_id
         @response = "notification sent at #{Time.now}"
         logger.info "response: #{@response}<"
         render :text => @response
