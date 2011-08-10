@@ -4,6 +4,6 @@
 			= render 'notification_services/edit_notifo_form'
 		.links
 			- unless current_user.accounts.empty?
-				= link_to ' Link a Gmail account', root_url + "oauth/google", :class => "button add"
+				= link_to ' Link a Gmail account', root_url + "oauth/google", :class => "button add left"
 			- unless current_user.default_notification_service_id.nil?
 				= link_to 'Edit Notifo', "#", :id => "slide-toggle", :class => "button"

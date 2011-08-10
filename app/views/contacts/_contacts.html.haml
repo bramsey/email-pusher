@@ -2,7 +2,7 @@
 	.contacts
 		= render contacts
 	= render 'contact_form'
-	.links
-		= link_to "Add a contact", "#", :id => "slide-toggle"
-		= link_to "Import contacts from Google", import_contacts_path
+	.buttons
+		= link_to "Add a contact", "#", :id => "slide-toggle", :class => "button add left"
+		= link_to "Import from Google", import_contacts_path, :class => "button save"
 	
