@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorized_user, :only => [:edit, :destroy, :update, :new]
   before_filter :load, :except => [:toggle_active, :update_service]
-  after_filter  :update_listener, :only => [:toggle_active]
+  after_filter  :update_listener, :only => [:toggle_active, :destroy]
   
   respond_to :html, :js
   
@@ -84,7 +84,7 @@ class AccountsController < ApplicationController
     
     def update_listener
       starling = Starling.new('localhost:22122')
-      if @account.active
+      if @account.active && !@account.destroyed
         starling.set('idler_queue', %{
           start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}
           }) if @account.user.listening 
