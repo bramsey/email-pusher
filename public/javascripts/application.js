@@ -23,6 +23,17 @@ $(document).ready(function() {
 	      $(".checklist").attr('checked', $('#checkAll').is(':checked'));   
 	   }
 	)
+	
+	$('#listForm').submit(function() {
+		var vals = [];
+		$(".checklist:checked").each(function(index, value){
+		    vals[index] = value.value;
+		});
+		var list_data = "contacts=" + vals.join(',');
+		//alert(data);
+		$.post('/contacts', list_data);
+		return false;
+	});
 
 	$("#slide-toggle").click(function () {
 		$('#slidefield').slideToggle('fast');

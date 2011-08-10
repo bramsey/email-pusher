@@ -11,15 +11,26 @@ class ContactsController < ApplicationController
   end
 
   def create
-    params[:contact][:email] = params[:contact][:email].downcase
-    @contact  = current_user.contacts.build(params[:contact])
-    if @contact.save
-      flash.now[:success] = "Contact created!"
-    else
-      flash.now[:error] = "Error creating contact. :("
-    end
+    if params[:contact]
+      params[:contact][:email] = params[:contact][:email].downcase
+      @contact  = @user.contacts.build(params[:contact])
+      @contact.save ?
+        flash.now[:success] = "Contact created!" :
+        flash.now[:error] = "Error creating contact. :("
     
-    respond_with @contact
+      respond_with @contact
+    elsif params[:contacts]
+      contacts = params[:contacts].split( ',' )
+      errors_found = false
+      contacts.each do |contact| 
+        errors_found = true unless @user.contacts.build(:user_id => @user.id, :email => contact.downcase ).save
+      end 
+      errors_found ?
+        flash.now[:error] = "Error creating contacts. :(" :
+        flash.now[:success] = "Contacts created!"
+        
+      redirect_to contacts_path
+    end
   end
 
   def destroy
