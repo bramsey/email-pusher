@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorized_user, :only => [:edit, :destroy, :update, :new]
   before_filter :load, :except => [:toggle_active, :update_service]
-  after_filter  :update_listener, :only => [:toggle_active, :destroy]
+  after_filter  :update_listener, :only => [:toggle_active, :destroy, :update]
   
   respond_to :html, :js
   
