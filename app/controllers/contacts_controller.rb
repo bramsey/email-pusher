@@ -26,8 +26,8 @@ class ContactsController < ApplicationController
         errors_found = true unless @user.contacts.build(:user_id => @user.id, :email => contact.downcase ).save
       end 
       errors_found ?
-        flash.now[:error] = "Error creating contacts. :(" :
-        flash.now[:success] = "Contacts created!"
+        flash[:error] = "Error creating contacts. :(" :
+        flash[:success] = "Contacts created!"
         
       redirect_to contacts_path
     end
