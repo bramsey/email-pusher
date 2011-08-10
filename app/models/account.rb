@@ -26,14 +26,17 @@ class Account < ActiveRecord::Base
     
     response = access_token.get("https://www.google.com/m8/feeds/contacts/#{username}/full?alt=json&max-results=10000")
 
-    results = JSON.parse(response.body)['feed']
+    if response.code == "200"
+      results = JSON.parse(response.body)['feed']
     
-    emails = results['entry'].map do |entry|
-      next unless entry['gd$email']
-      entry['gd$email'].first['address'].downcase
+      emails = results['entry'].map do |entry|
+        next unless entry['gd$email']
+        entry['gd$email'].first['address'].downcase
+      end
+      emails.compact!
+      emails
     end
-    emails.compact!
-    emails
+    emails ||= []
   end
   
   private
