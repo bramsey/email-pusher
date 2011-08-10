@@ -59,11 +59,14 @@ class MailReader
 
   def process
     puts "checking #{USERNAME}."
+    @highest_id ||= 0
     msg_ids = @imap.search(["UNSEEN", "UNFLAGGED"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
 
     msg_ids.each do |msg_id|
+      next unless msg_id.to_i > @highest_id
+      @highest_id = msg_id.to_i
       mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
       @imap.store msg_id, '-FLAGS', [:Seen]
       
@@ -76,18 +79,11 @@ class MailReader
       
       processFlag = toFlag && noReplyFlag && listFlag
       
-      puts "toFlag: #{toFlag.to_s}"
-      puts "noReplyFlag: #{noReplyFlag.to_s}"
-      puts "processFlag: #{processFlag.to_s}"
-      
       priority = mail.header['X-Priority'].value if mail.header['X-Priority']
       priorityFlag = (priority == 1)
       subjFlag = (mail.subject[0] == "!")
       directFlag = priorityFlag || subjFlag
       
-      puts "priorityFlag: #{priorityFlag.to_s}"
-      puts "subjFlag: #{subjFlag.to_s}"
-      puts "directFlag: #{directFlag.to_s}"
       
       if processFlag
         directFlag ?
