@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   require 'starling'
   
   before_filter :authenticate_user!
-  before_filter :authorized_user, :only => [:edit, :destroy, :update, :new]
+  before_filter :authorized_user, :only => [:destroy, :update, :new]
   before_filter :load, :except => [:toggle_active, :update_service]
   after_filter  :update_listener, :only => [:toggle_active, :destroy, :update]
   
@@ -29,10 +29,6 @@ class AccountsController < ApplicationController
       flash.now[:error] = "Error deleting account."
     
     respond_with @account
-  end
-  
-  def edit
-    @account = Account.find(params[:id])
   end
   
   def update
