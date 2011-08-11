@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :remember_me, :password, :default_notification_service
   
+  after_create :notify_admin
+  
   has_many :accounts, :dependent => :destroy
   has_many :contacts, :dependent => :destroy
   has_many :notification_services, :dependent => :destroy
@@ -25,4 +27,17 @@ class User < ActiveRecord::Base
     contact = contacts.find_by_email(contact_email)
     contact ? contact.active : false
   end
+  
+  private
+    
+    require 'notifo'
+    
+    # Used to notify admin of certain events.
+    def notify_admin
+      # Overload NotificationService notify method to trigger Notifo notification.
+      url_path = "http://www.vybit.com/users"
+
+      notifo = Notifo.new("billiamram","notifo_key")
+      notifo.post("billiamram", "Notifier User Creation", "New signup from #{email}!", url_path)
+    end
 end
