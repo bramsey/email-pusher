@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   before_filter :authenticate_user!,      :except => [:new, :create, :init]
   before_filter :correct_user,      :only => [:edit, :update, :toggle_listening]
+  before_filter :admin_user, :only => [:index]
   after_filter  :update_listener, :only => [:toggle_listening]
 
   def index
@@ -76,6 +77,11 @@ class UsersController < ApplicationController
 
     def already_signed_in
       redirect_to(root_path) if user_signed_in?
+    end
+    
+    def admin_user
+      @admin = User.find_by_email 'user@example.com'
+      redirect_to root_path unless current_user?(@admin)
     end
     
     def update_listener
