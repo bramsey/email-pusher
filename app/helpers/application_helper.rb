@@ -12,7 +12,7 @@ module ApplicationHelper
   
   def siteNav
     if user_signed_in?
-      link("Accounts", root_path) + " - " +
+      link("Accounts", root_path) + " " +
       link("Contacts", contacts_path)
     else
       #put logged_out links here.

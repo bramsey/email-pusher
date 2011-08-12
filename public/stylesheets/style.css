@@ -303,70 +303,86 @@ input:invalid, textarea:invalid {
   background-color: #f0dddd;
 }
 
-/* line 145, ../../app/stylesheets/partials/_page.scss */
-div {
-  width: auto;
-}
-
-/* line 147, ../../app/stylesheets/partials/_page.scss */
+/* line 165, ../../app/stylesheets/partials/_page.scss */
 body {
   background-color: white;
   -webkit-text-size-adjust: 100%;
 }
 
-/* line 149, ../../app/stylesheets/partials/_page.scss */
+/* line 167, ../../app/stylesheets/partials/_page.scss */
 body {
   width: 320px;
+  margin: auto;
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  /* line 154, ../../app/stylesheets/partials/_page.scss */
-  body {
-    width: 480px;
-  }
-}
-/* line 161, ../../app/stylesheets/partials/_page.scss */
+/* line 173, ../../app/stylesheets/partials/_page.scss */
 #container {
-  margin: .5em;
-  margin-top: 126px;
+  margin: auto;
+  margin-top: 66px;
   width: 96%;
 }
 
-/* line 167, ../../app/stylesheets/partials/_page.scss */
+/* line 179, ../../app/stylesheets/partials/_page.scss */
 .readjust {
   margin-top: -126px;
 }
 
-/* line 169, ../../app/stylesheets/partials/_page.scss */
+/* line 181, ../../app/stylesheets/partials/_page.scss */
 .empty {
   display: block;
 }
 
-/* line 171, ../../app/stylesheets/partials/_page.scss */
+/* line 183, ../../app/stylesheets/partials/_page.scss */
 #logo {
-  color: #444;
+  float: left;
+}
+/* line 184, ../../app/stylesheets/partials/_page.scss */
+#logo a {
+  color: #333;
   text-decoration: none;
 }
+/* line 188, ../../app/stylesheets/partials/_page.scss */
+#logo a:hover {
+  color: #DD4B39;
+}
 
-/* line 176, ../../app/stylesheets/partials/_page.scss */
+/* line 193, ../../app/stylesheets/partials/_page.scss */
+#listen_box {
+  margin-top: .25em;
+  display: block;
+  width: 90px;
+  float: right;
+  padding-right: 14px;
+}
+
+/* line 201, ../../app/stylesheets/partials/_page.scss */
 header {
   margin-top: 0;
   background-color: #fff;
   padding: .5em;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  -khtml-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  border-bottom: 1px solid #EBEBEB;
 }
-/* line 177, ../../app/stylesheets/partials/_page.scss */
+/* line 202, ../../app/stylesheets/partials/_page.scss */
 header h1 {
   font-size: 220%;
 }
 
-/* line 184, ../../app/stylesheets/partials/_page.scss */
+/* line 214, ../../app/stylesheets/partials/_page.scss */
 #topNav {
-  margin-top: 120px;
+  margin-top: 76px;
   background-color: #fff;
   padding-bottom: 1em;
+  padding-top: 1.5em;
+  z-index: 998;
 }
 
-/* line 189, ../../app/stylesheets/partials/_page.scss */
+/* line 221, ../../app/stylesheets/partials/_page.scss */
 .floating {
   position: fixed;
   top: 0;
@@ -376,42 +392,42 @@ header h1 {
   width: 320px;
 }
 
-/* line 198, ../../app/stylesheets/partials/_page.scss */
+/* line 230, ../../app/stylesheets/partials/_page.scss */
 #import {
-  margin-top: 2em;
+  margin-top: 5em;
 }
 
-/* line 202, ../../app/stylesheets/partials/_page.scss */
-#logo {
-  color: #444;
-}
-
-/* line 206, ../../app/stylesheets/partials/_page.scss */
+/* line 234, ../../app/stylesheets/partials/_page.scss */
 nav {
   font-size: 160%;
-  margin-top: .5em;
+  margin-top: .25em;
+  float: left;
+  position: relative;
+  padding-bottom: .1em;
+  clear: both;
 }
 
-/* line 212, ../../app/stylesheets/partials/_page.scss */
+/* line 245, ../../app/stylesheets/partials/_page.scss */
 #nav {
-  margin-top: .75em;
+  position: relative;
+  float: left;
 }
-/* line 217, ../../app/stylesheets/partials/_page.scss */
+/* line 250, ../../app/stylesheets/partials/_page.scss */
 #nav a {
   color: #777;
   text-decoration: none;
 }
-/* line 220, ../../app/stylesheets/partials/_page.scss */
+/* line 253, ../../app/stylesheets/partials/_page.scss */
 #nav a:hover {
-  color: #ccc;
+  color: #DD4B39;
 }
-/* line 222, ../../app/stylesheets/partials/_page.scss */
+/* line 255, ../../app/stylesheets/partials/_page.scss */
 #nav .selected {
-  color: #444;
+  color: #F90;
   font-weight: bold;
 }
 
-/* line 232, ../../app/stylesheets/partials/_page.scss */
+/* line 264, ../../app/stylesheets/partials/_page.scss */
 #main {
   margin-bottom: 1em;
   margin-left: .1em;
@@ -419,60 +435,60 @@ nav {
   padding-top: 1em;
 }
 
-/* line 239, ../../app/stylesheets/partials/_page.scss */
+/* line 271, ../../app/stylesheets/partials/_page.scss */
 .account_name, .check_name, .check_name_quiet {
   font-size: 140%;
   color: #555;
 }
 
-/* line 244, ../../app/stylesheets/partials/_page.scss */
+/* line 276, ../../app/stylesheets/partials/_page.scss */
 .check_name_quiet {
   color: #999;
 }
 
-/* line 246, ../../app/stylesheets/partials/_page.scss */
+/* line 278, ../../app/stylesheets/partials/_page.scss */
 .account_information, .contact_information {
   margin-bottom: 1.5em;
   position: relative;
 }
 
-/* line 252, ../../app/stylesheets/partials/_page.scss */
+/* line 284, ../../app/stylesheets/partials/_page.scss */
 #sign_out {
   float: right;
 }
-/* line 257, ../../app/stylesheets/partials/_page.scss */
+/* line 289, ../../app/stylesheets/partials/_page.scss */
 #sign_out a.sign_out {
   color: #999;
 }
-/* line 259, ../../app/stylesheets/partials/_page.scss */
+/* line 291, ../../app/stylesheets/partials/_page.scss */
 #sign_out a.sign_out:hover {
   color: #444;
 }
 
-/* line 263, ../../app/stylesheets/partials/_page.scss */
+/* line 295, ../../app/stylesheets/partials/_page.scss */
 #sign_in {
   padding-left: .1em;
 }
 
-/* line 267, ../../app/stylesheets/partials/_page.scss */
+/* line 299, ../../app/stylesheets/partials/_page.scss */
 .check {
   width: 300px;
   display: inline-block;
   position: relative;
 }
 
-/* line 273, ../../app/stylesheets/partials/_page.scss */
+/* line 305, ../../app/stylesheets/partials/_page.scss */
 .check_name {
   display: inline-block;
 }
 
-/* line 277, ../../app/stylesheets/partials/_page.scss */
+/* line 309, ../../app/stylesheets/partials/_page.scss */
 .logo_box {
   margin-top: .5em;
   margin-left: .2em;
 }
 
-/* line 282, ../../app/stylesheets/partials/_page.scss */
+/* line 314, ../../app/stylesheets/partials/_page.scss */
 .right_box {
   position: absolute;
   top: -2px;
@@ -480,12 +496,12 @@ nav {
   display: inline-block;
 }
 
-/* line 289, ../../app/stylesheets/partials/_page.scss */
+/* line 321, ../../app/stylesheets/partials/_page.scss */
 hr {
   color: #EBEBEB;
 }
 
-/* line 291, ../../app/stylesheets/partials/_page.scss */
+/* line 323, ../../app/stylesheets/partials/_page.scss */
 .account, .contact {
   min-height: 30px;
   border-bottom: 1px solid #EBEBEB;
@@ -493,13 +509,13 @@ hr {
   position: relative;
 }
 
-/* line 298, ../../app/stylesheets/partials/_page.scss */
+/* line 330, ../../app/stylesheets/partials/_page.scss */
 .accounts, .contacts {
   border-top: 1px solid #EBEBEB;
   margin-bottom: 1.25em;
 }
 
-/* line 306, ../../app/stylesheets/partials/_page.scss */
+/* line 338, ../../app/stylesheets/partials/_page.scss */
 .success, .error, .notice, #error_explanation {
   display: block;
   padding-left: .5em;
@@ -516,53 +532,53 @@ hr {
   -khtml-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 316, ../../app/stylesheets/partials/_page.scss */
+/* line 348, ../../app/stylesheets/partials/_page.scss */
 .success a, .error a, .notice a, #error_explanation a {
   color: #000;
 }
-/* line 316, ../../app/stylesheets/partials/_page.scss */
+/* line 348, ../../app/stylesheets/partials/_page.scss */
 .success a:hover, .error a:hover, .notice a:hover, #error_explanation a:hover {
   color: #00c;
 }
 
-/* line 319, ../../app/stylesheets/partials/_page.scss */
+/* line 351, ../../app/stylesheets/partials/_page.scss */
 .success {
   border: 1px solid #0a0;
   background-color: #cfc;
 }
 
-/* line 320, ../../app/stylesheets/partials/_page.scss */
+/* line 352, ../../app/stylesheets/partials/_page.scss */
 .notice {
   border: 1px solid #FFD324;
   background-color: #ffc;
 }
 
-/* line 321, ../../app/stylesheets/partials/_page.scss */
+/* line 353, ../../app/stylesheets/partials/_page.scss */
 .error, #error_explanation {
   border: 1px solid #a00;
   background-color: #fcc;
 }
 
-/* line 323, ../../app/stylesheets/partials/_page.scss */
+/* line 355, ../../app/stylesheets/partials/_page.scss */
 footer {
   margin-left: .25em;
   position: relative;
 }
 
-/* line 328, ../../app/stylesheets/partials/_page.scss */
+/* line 360, ../../app/stylesheets/partials/_page.scss */
 #input_form {
   float: none;
   display: block;
   position: relative;
 }
 
-/* line 334, ../../app/stylesheets/partials/_page.scss */
+/* line 366, ../../app/stylesheets/partials/_page.scss */
 #account_nav {
   display: block;
   overflow: auto;
 }
 
-/* line 336, ../../app/stylesheets/partials/_page.scss */
+/* line 368, ../../app/stylesheets/partials/_page.scss */
 #input_field {
   width: 66%;
   height: 22px;
@@ -579,7 +595,7 @@ footer {
   padding: 5px;
 }
 
-/* line 348, ../../app/stylesheets/partials/_page.scss */
+/* line 380, ../../app/stylesheets/partials/_page.scss */
 .submit {
   background: #33cc33;
   /* fallback/image non-cover color */
@@ -643,58 +659,113 @@ footer {
   box-shadow: inset 0 0 8px 4px #248f24, 0 1px 0 0 #eeeeee;
 }
 
-/* line 361, ../../app/stylesheets/partials/_page.scss */
+/* line 393, ../../app/stylesheets/partials/_page.scss */
 .user {
   margin-bottom: 1em;
 }
 
-/* line 363, ../../app/stylesheets/partials/_page.scss */
+/* line 395, ../../app/stylesheets/partials/_page.scss */
 .links {
   float: none;
   clear: both;
 }
 
-/* line 365, ../../app/stylesheets/partials/_page.scss */
+/* line 397, ../../app/stylesheets/partials/_page.scss */
 .field {
   clear: both;
   overflow: auto;
   margin-bottom: 1em;
 }
-/* line 366, ../../app/stylesheets/partials/_page.scss */
+/* line 398, ../../app/stylesheets/partials/_page.scss */
 .field input {
   float: left;
 }
 
-/* line 372, ../../app/stylesheets/partials/_page.scss */
+/* line 404, ../../app/stylesheets/partials/_page.scss */
 .delete_item {
   text-decoration: none;
 }
-/* line 374, ../../app/stylesheets/partials/_page.scss */
+/* line 406, ../../app/stylesheets/partials/_page.scss */
 .delete_item:hover {
   color: #f00;
 }
 
-/* line 377, ../../app/stylesheets/partials/_page.scss */
+/* line 409, ../../app/stylesheets/partials/_page.scss */
 p {
   margin-bottom: .5em;
 }
 
-/* line 380, ../../app/stylesheets/partials/_page.scss */
+/* line 412, ../../app/stylesheets/partials/_page.scss */
 #slidefield {
   display: none;
 }
 
-/* line 384, ../../app/stylesheets/partials/_page.scss */
+/* line 416, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckContainer {
   width: 90px;
 }
 
-/* line 385, ../../app/stylesheets/partials/_page.scss */
+/* line 417, ../../app/stylesheets/partials/_page.scss */
 .iPhoneCheckHandle {
   width: 34px;
 }
 
+@media only screen and (min-width: 480px) {
+  /* line 10, ../../app/stylesheets/partials/_media.scss */
+  body, .floating {
+    width: 480px;
+  }
+
+  /* line 14, ../../app/stylesheets/partials/_media.scss */
+  #listen_box {
+    padding-right: 16px;
+  }
+}
 /*/mediaquery*/
+@media only screen and (min-width: 768px) {
+  /* line 21, ../../app/stylesheets/partials/_media.scss */
+  body, .floating {
+    width: 768px;
+  }
+
+  /* line 25, ../../app/stylesheets/partials/_media.scss */
+  #container {
+    margin-top: 34px;
+  }
+
+  /* line 26, ../../app/stylesheets/partials/_media.scss */
+  #topNav {
+    margin-top: 42px;
+  }
+
+  /* line 28, ../../app/stylesheets/partials/_media.scss */
+  nav {
+    margin-left: 7em;
+    clear: none;
+  }
+
+  /* line 30, ../../app/stylesheets/partials/_media.scss */
+  #listen_box {
+    padding-right: 22px;
+  }
+}
+/*/mediaquery*/
+@media only screen and (min-width: 960px) {
+  /* line 40, ../../app/stylesheets/partials/_media.scss */
+  body, .floating {
+    width: 960px;
+  }
+
+  /* line 44, ../../app/stylesheets/partials/_media.scss */
+  nav {
+    margin-left: 11em;
+  }
+
+  /* line 46, ../../app/stylesheets/partials/_media.scss */
+  #listen_box {
+    padding-right: 26px;
+  }
+}
 /*/mediaquery*/
 @media print {
   /* line 10, ../../../../.rvm/gems/ruby-1.9.2-p180/gems/html5-boilerplate-1.0.0/stylesheets/html5-boilerplate/_media.scss */

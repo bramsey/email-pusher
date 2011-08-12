@@ -6,11 +6,45 @@
 
 @media only screen and (min-width: 480px) {
   // Style adjustments for viewports 480px and over go here
+
+	body, .floating {
+		width: 480px;
+	}
+	
+	#listen_box { padding-right: 16px; }
   
 }/*/mediaquery*/
 
 @media only screen and (min-width: 768px) {
   // Style adjustments for viewports 768px and over go here
+
+	body, .floating {
+		width: 768px;
+	}
+	
+	#container { margin-top: 34px; }
+	#topNav { margin-top: 42px; }
+	
+	nav { margin-left: 7em; clear: none; }
+	
+	#listen_box { padding-right: 22px; }
+	
+	
+	
+  
+}/*/mediaquery*/
+
+@media only screen and (min-width: 960px) {
+  // Style adjustments for viewports 960px and over go here
+
+	body, .floating {
+		width: 960px;
+	}
+	
+	nav { margin-left: 11em; }
+	
+	#listen_box { padding-right: 26px; }
+	
   
 }/*/mediaquery*/
 

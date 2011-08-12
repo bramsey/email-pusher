@@ -1,4 +1,6 @@
-%h1= link_to 'Email Notifier', root_path, :id => 'logo'
+#logo
+	%h1= link_to 'Email Notifier', root_path
 - if user_signed_in?
-	.logo_box
+	#listen_box
 		= listen_box
+= render "layouts/nav"
