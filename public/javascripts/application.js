@@ -44,4 +44,17 @@ $(document).ready(function() {
 	setTimeout(function() {
 		$('#flash').slideUp('medium');
 	}, 5000);
+	
+	var $top1= $('#header').offset().top + 20; //add additional necessary offset for Webkit  
+	$(window).scroll(function()  
+	{  
+	    if ($(window).scrollTop())  
+	    {  
+	     $('#header').addClass('floating');  
+	    }  
+	    else  
+	    {  
+	     $('#header').removeClass('floating');  
+	     }  
+	});
 });

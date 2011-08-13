@@ -206,9 +206,10 @@ header {
 	//background-image: -webkit-gradient(linear, left top, left bottom, 
 	//                                       from(#fff), to(#eee));
 	//@include single-box-shadow(#444, 0, 0, 5px, 0);
-	@include bottom-round(4px);
+	//@include bottom-round(4px);
 	//@include gradient(#fff, 10%);
-	border-bottom: 1px solid #EBEBEB;
+	width: 320px;
+	
 }
 
 #topNav {
@@ -224,7 +225,9 @@ header {
 	float: left;
 	clear: both;
 	z-index:999;
-	width: 320px;
+	
+	@include single-box-shadow(#EBEBEB, 0, 8px, 8px, -8px);
+	border-bottom: 1px solid #EBEBEB;
 }
 
 #import {

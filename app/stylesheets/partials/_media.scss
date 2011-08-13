@@ -7,7 +7,7 @@
 @media only screen and (min-width: 480px) {
   // Style adjustments for viewports 480px and over go here
 
-	body, .floating {
+	body, #header {
 		width: 480px;
 	}
 	
@@ -18,7 +18,7 @@
 @media only screen and (min-width: 768px) {
   // Style adjustments for viewports 768px and over go here
 
-	body, .floating {
+	body, #header {
 		width: 768px;
 	}
 	
@@ -37,7 +37,7 @@
 @media only screen and (min-width: 960px) {
   // Style adjustments for viewports 960px and over go here
 
-	body, .floating {
+	body, #header {
 		width: 960px;
 	}
 	
