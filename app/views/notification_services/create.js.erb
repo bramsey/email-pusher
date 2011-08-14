@@ -4,13 +4,7 @@
 		$('.notifo_empty').remove();
 		$('#account_nav').html("<%= escape_javascript(render(:partial => "accounts/nav")) %>");
 
-		$(document).ready(function() {
-			$("#slide-toggle").click(function () {
-				$('#slidefield').slideToggle('fast');
-				$('#input_field').focus();
-				return false;
-		    });
-		});
+
 	}, 400);
 	$('.logo_box')
 		.html("<%= escape_javascript(listen_box) %>")

@@ -13,6 +13,12 @@ $('#flash').live('click', function() {
   	$('#flash').slideUp('medium');
 });
 
+$('#container').delegate('#slide-toggle', 'click', function () {
+	$('#slidefield').slideToggle('fast');
+	$('#input_field').focus()
+	return false;
+});
+
 $(document).ready(function() {
     $('.checkable').iphoneStyle();
 	$('.checklist').shiftcheckbox();
@@ -34,12 +40,6 @@ $(document).ready(function() {
 		$.post('/contacts', list_data);
 		return false;
 	});
-
-	$("#slide-toggle").click(function () {
-		$('#slidefield').slideToggle('fast');
-		$('#input_field').focus()
-		return false;
-    });
 
 	setTimeout(function() {
 		$('#flash').slideUp('medium');

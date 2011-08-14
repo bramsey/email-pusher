@@ -20,13 +20,7 @@
 			:locals => { :contacts => @contacts })) %>")
 		$('#slidefield').slideToggle('fast');
 		$('#input_field').focus();
-		$(document).ready(function() {
-			$("#slide-toggle").click(function () {
-				$('#slidefield').slideToggle('fast');
-				$('#input_field').focus();
-				return false;
-		    });
-		});
+
 		$('#flash')
 			.html("<%= escape_javascript(render(:partial => "layouts/flashes")) %>")
 			.hide()

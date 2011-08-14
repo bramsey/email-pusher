@@ -38,6 +38,7 @@ class NotificationServicesController < ApplicationController
       flash.now[:error] = "No such user found. Please check the id or register if needed."
     else
       flash.now[:error] = "Unable to verify Notifo account."
+      logger.info response
     end
     
     respond_with @notification_service
