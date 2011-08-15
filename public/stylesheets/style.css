@@ -708,6 +708,11 @@ p {
   width: 34px;
 }
 
+/* line 422, ../../app/stylesheets/partials/_page.scss */
+#subscribe {
+  width: 70%;
+}
+
 @media only screen and (min-width: 480px) {
   /* line 10, ../../app/stylesheets/partials/_media.scss */
   body, #header {

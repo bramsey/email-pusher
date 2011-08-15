@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802154900) do
+ActiveRecord::Schema.define(:version => 20110815174059) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20110802154900) do
   end
 
   add_index "contacts", ["email"], :name => "index_contacts_on_email"
+
+  create_table "invites", :force => true do |t|
+    t.string   "email"
+    t.boolean  "approved",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invites", ["email"], :name => "index_invites_on_email", :unique => true
 
   create_table "notification_services", :force => true do |t|
     t.integer  "user_id"

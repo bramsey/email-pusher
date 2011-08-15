@@ -1,0 +1,11 @@
+.user
+	= invite.email
+	[
+	= invite.created_at
+	= "] -"
+	- unless invite.approved
+		= link_to "approve", approve_invite_path(invite)
+	- else
+		= link_to "disapprove", disapprove_invite_path(invite)
+	= link_to "delete", invite, :method => :delete, :confirm => "You sure?", 
+						  :title => "Delete #{invite.email}", :class => "delete_item"

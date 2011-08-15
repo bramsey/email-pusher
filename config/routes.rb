@@ -16,6 +16,13 @@ Pusher::Application.routes.draw do
     end
   end
   
+  resources :invites, :only => [:create, :new, :destroy, :index] do
+    member do
+      get :approve
+      get :disapprove
+    end
+  end
+  
   resources :contacts do
     member do
       post :toggle_active

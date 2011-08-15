@@ -28,13 +28,17 @@ class User < ActiveRecord::Base
     contact ? contact.active : false
   end
   
+  def approved?
+    invite = Invite.find_by_email email
+    invite ? invite.approved : false
+  end
+  
   private
     
     require 'notifo'
     
     # Used to notify admin of certain events.
     def notify_admin
-      # Overload NotificationService notify method to trigger Notifo notification.
       url_path = "http://www.vybit.com/users"
 
       notifo = Notifo.new("billiamram","notifo_key")
