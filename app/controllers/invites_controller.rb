@@ -38,6 +38,8 @@ class InvitesController < ApplicationController
     
     @invite.update_attribute(:approved, true)
     
+    InviteMailer.approval_accepted_email( @invite ).deliver
+    
     redirect_to invites_path
   end
   

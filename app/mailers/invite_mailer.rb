@@ -6,4 +6,9 @@ class InviteMailer < ActionMailer::Base
     mail(:to => invite.email,
        :subject => "Thanks for your interest in the Vybit Email Notifier!")
   end
+  
+  def approval_accepted_email( invite )
+    mail(:to => invite.email,
+       :subject => "Email Notifier Access Request Approved!")
+  end
 end
