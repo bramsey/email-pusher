@@ -18,7 +18,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new(params[:invite])
     if @invite.save
       flash[:success] = "Thanks for your interest!"
-      # InviteMailer.welcome_email( @invite ).deliver
+      InviteMailer.thank_you_email( @invite ).deliver
     else
       flash[:error] = "There was an error submitting your email address, please check your entry and try again."
     end
