@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   before_filter :authenticate_user!,      :except => [:new, :create, :init]
   before_filter :correct_user,      :only => [:edit, :update, :toggle_listening]
-  before_filter :admin_user, :only => [:index]
+  before_filter :admin_user, :only => [:index, :show]
   after_filter  :update_listener, :only => [:toggle_listening]
 
   def index
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
+  end
+  
+  def show
+    @user = User.find( params[:id] )
   end
 
   def update

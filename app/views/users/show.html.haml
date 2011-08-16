@@ -1,0 +1,26 @@
+%p
+	%h1(style = "font-size: 200%;")= @user.email
+%p
+	%strong Sign in count:
+	= @user.sign_in_count
+%p
+	%strong Current sign in at: 
+	= @user.current_sign_in_at
+%p
+	%strong Last sign in:
+	= @user.last_sign_in_at
+%p
+	%strong Current sign in IP:
+	= @user.current_sign_in_ip
+%p
+	%strong Created at:
+	= @user.created_at
+%p
+	%strong Updated at:
+	= @user.updated_at
+%p
+	%strong Listening?:
+	= @user.listening
+%p
+	%strong Contact count:
+	= @user.contacts.length
