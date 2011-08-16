@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     @user = User.find_by_email( recipient ) unless recipient.nil?
     logger.info "assigned @user."
     unless (sender.nil? || @user.nil?)
-      if @user.has_active_contact?(sender)
+      if @user.has_active_contact?(sender.downcase)
         @user.default_notification_service.notify(sender, subject, recipient) if @user.default_notification_service_id
         @response = "notification sent at #{Time.now}"
         logger.info "response: #{@response}<"
