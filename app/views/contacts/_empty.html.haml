@@ -1,6 +1,8 @@
 .empty
 	.notice
 		Please
-		= link_to " add a contact", "#", :id => "slide-toggle"
+		= link_to " add a contact ", "#", :id => "slide-toggle"
+		or
+		= link_to "import some from Google", import_contacts_path
 		= " to receive notifications of their emails."
 	= render 'contact_form'
