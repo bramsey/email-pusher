@@ -1,26 +1,44 @@
 %p
 	%h1(style = "font-size: 200%;")= @user.email
 %p
-	%strong Sign in count:
-	= @user.sign_in_count
-%p
-	%strong Current sign in at: 
-	= @user.current_sign_in_at
-%p
-	%strong Last sign in:
-	= @user.last_sign_in_at
-%p
-	%strong Current sign in IP:
-	= @user.current_sign_in_ip
-%p
-	%strong Created at:
-	= @user.created_at
-%p
-	%strong Updated at:
-	= @user.updated_at
-%p
-	%strong Listening?:
-	= @user.listening
-%p
-	%strong Contact count:
-	= @user.contacts.length
+	%table(width = "40%")
+		%tr
+			%td
+				%strong Sign in count:
+			%td
+				= @user.sign_in_count
+		%tr
+			%td
+				%strong Current sign in at:
+			%td
+				= @user.current_sign_in_at
+		%tr
+			%td
+				%strong Last sign in:
+			%td
+				= @user.last_sign_in_at
+		%tr
+			%td
+				%strong Current sign in IP:
+			%td
+				= @user.current_sign_in_ip
+		%tr
+			%td
+				%strong Created at:
+			%td
+				= @user.created_at
+		%tr
+			%td
+				%strong Updated at:
+			%td
+				= @user.updated_at
+		%tr
+			%td
+				%strong Listening?:
+			%td
+				= @user.listening
+		%tr
+			%td
+				%strong Contact count:
+			%td
+				= @user.contacts.length
