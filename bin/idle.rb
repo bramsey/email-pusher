@@ -17,6 +17,7 @@ require 'time'
 require 'date'
 require 'net/http'
 require 'gmail_xoauth'
+require 'notifo'
 
 # Extend support for idle command. See online.
 # http://www.ruby-forum.com/topic/50828
@@ -161,6 +162,11 @@ class MailReader
   end
 end
 
+def notify_admin
+  notifo = Notifo.new("billiamram","notifo_key")
+  notifo.post("billiamram", "Idle.rb error", "check the logs!")
+end
+
 #Net::IMAP.debug = true
 
 reader = MailReader.new
@@ -168,5 +174,21 @@ reader = MailReader.new
 loop do
   sleep 10*60
   puts "bouncing account #{USERNAME}"
-  reader.bounce_idle
+  
+  begin
+    reader.bounce_idle
+  # NoResponseError and ByResponseError happen often when imap'ing
+  rescue Net::IMAP::NoResponseError => e
+    File.open("#{USERNAME}.err.log", 'a') {|f| f.write(e.message) }
+    notify_admin
+  rescue Net::IMAP::ByeResponseError => e
+    File.open("#{USERNAME}.err.log", 'a') {|f| f.write(e.message) }
+    notify_admin
+  rescue => e
+    File.open("#{USERNAME}.err.log", 'a') do |f| 
+      f.write(e.message)
+      f.write(e.backtrace)
+    end
+    notify_admin
+  end
 end
