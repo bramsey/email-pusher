@@ -4,7 +4,6 @@ class Account < ActiveRecord::Base
   attr_accessor :destroyed
   
   after_destroy :mark_as_destroyed
-  #after_create :set_default_notification_service
   
   
   belongs_to :user
@@ -24,11 +23,13 @@ class Account < ActiveRecord::Base
     
     access_token = OAuth::AccessToken.new(consumer, token, secret)
     
+    # Make the contacts request with the token.
     response = access_token.get("https://www.google.com/m8/feeds/contacts/#{username}/full?alt=json&max-results=10000")
 
     if response.code == "200"
       results = JSON.parse(response.body)['feed']
     
+      # Pull only the emails from the contacts feed and remove empty values.
       emails = results['entry'].map do |entry|
         next unless entry['gd$email']
         entry['gd$email'].first['address'].downcase
@@ -42,7 +43,9 @@ class Account < ActiveRecord::Base
   private
     
     def set_default_notification_service
-      update_attribute(:notification_service_id, user.default_notification_service) unless user.default_notification_service.nil?
+      update_attribute(:notification_service_id, 
+        user.default_notification_service) unless 
+          user.default_notification_service.nil?
     end
     
     def mark_as_destroyed
