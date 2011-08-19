@@ -1,17 +1,20 @@
-SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://www.vybit.com'
-USERNAME = ARGV[0] unless ARGV[0].nil?
-TOKEN = ARGV[1] unless ARGV[1].nil?
-SECRET = ARGV[2] unless ARGV[2].nil?
-
 if !(ARGV.length >= 2)
   puts "usage: ruby <script> <username> <token> <secret>"
   ARGV.each {|arg| puts "#{arg}<"}
   exit
 end
 
-#require 'net/imap'
-#require 'rubygems'
+SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
+HOST_URL = 'http://www.vybit.com'
+USERNAME = ARGV[0] unless ARGV[0].nil?
+CONSUMER_KEY = 'anonymous'
+CONSUMER_SECRET = 'anonymous'
+TOKEN = ARGV[1] unless ARGV[1].nil?
+SECRET = ARGV[2] unless ARGV[2].nil?
+NOTIFO_USER = 'billiamram'
+NOTIFO_SECRET = 'notifo_key'
+
+
 require 'mail'
 require 'time'
 require 'date'
@@ -58,9 +61,10 @@ class MailReader
     start_imap
   end
 
+  # Process incoming messages.
   def process
     puts "checking #{USERNAME}."
-    @highest_id ||= 0
+    @highest_id ||= 0 # Used to prevent overlap of checking the same messages.
     msg_ids = @imap.search(["UNSEEN", "UNFLAGGED"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
@@ -68,7 +72,7 @@ class MailReader
     msg_ids.each do |msg_id|
       next unless msg_id.to_i > @highest_id
       @highest_id = msg_id.to_i
-      mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
+      mail = Mail.new( @imap.fetch(msg_id, 'RFC822').first.attr['RFC822'] )
       @imap.store msg_id, '-FLAGS', [:Seen]
       
       puts "New mail from #{mail.from.first}:"
@@ -80,39 +84,27 @@ class MailReader
       
       processFlag = toFlag && noReplyFlag && listFlag
       
-      priority = mail.header['X-Priority'].value if mail.header['X-Priority']
-      priorityFlag = (priority == 1)
-      subjFlag = (mail.subject[0] == "!")
-      directFlag = priorityFlag || subjFlag
       
-      
-      if processFlag
-        directFlag ?
-          priority ||= "1" :
-          priority ||= "3"
+      if processFlag # Ensure the proper conditions are met.
           
-        response = send_init_with_priority( mail.from.first, 
-                                            USERNAME,
-                                            priority,
-                                            mail.subject )
+        response = send_init( mail.from.first, mail.subject )
         puts "direct response: #{response}"
         @imap.store msg_id, '+FLAGS', [:flagged] unless response == "denied"
       end 
     end
   end
   
-  def send_init_with_priority( sender, recipient, priority, subject)
+  # Post the initialization call to the rails server.
+  def send_init( sender, subject )
     url = URI.parse("#{HOST_URL}/users/init")
     subject ||= ""
     post_args = { :sender => sender,
-                  :recipient => recipient,
-                  :priority => priority,
+                  :recipient => USERNAME,
                   :subject => subject }
     
-    response, data = Net::HTTP.post_form(url, post_args)
+    response, data = Net::HTTP.post_form( url, post_args )
     
-    response.code == "200" ?
-      data : "#{response.code}"
+    response.code == "200" ? data : "#{response.code}"
   end
 
   def tidy
@@ -123,7 +115,6 @@ class MailReader
     # Bounces the idle command.
     @imap.say_done
     @imap.await_done_confirmation
-    # Do a manual check, just in case things aren't working properly.
     process
     @imap.idle
   end
@@ -132,10 +123,9 @@ class MailReader
   def start_imap
     @imap = Net::IMAP.new SERVER, ssl: true
 
-    #@imap.login USERNAME, PW
     @imap.authenticate('XOAUTH', USERNAME, 
-        :consumer_key => 'anonymous', 
-        :consumer_secret => 'anonymous', 
+        :consumer_key => CONSUMER_KEY, 
+        :consumer_secret => CONSUMER_SECRET, 
         :token => TOKEN, 
         :token_secret => SECRET
       )
@@ -162,12 +152,11 @@ class MailReader
   end
 end
 
-def notify_admin
-  notifo = Notifo.new("billiamram","notifo_key")
-  notifo.post("billiamram", "Idle.rb error", "check the logs!")
+# Sends notifo message to admin for use in error notification.
+def notify_admin( message )
+  notifo = Notifo.new( NOTIFO_USER, NOTIFO_SECRET )
+  notifo.post( "billiamram", "Idle.rb error", message )
 end
-
-#Net::IMAP.debug = true
 
 reader = MailReader.new
 
@@ -175,20 +164,20 @@ loop do
   sleep 10*60
   puts "bouncing account #{USERNAME}"
   
+  # Error checking.
   begin
     reader.bounce_idle
-  # NoResponseError and ByResponseError happen often when imap'ing
   rescue Net::IMAP::NoResponseError => e
-    File.open("#{USERNAME}.err.log", 'a') {|f| f.write(e.message) }
-    notify_admin
+    File.open( "#{USERNAME}.err.log", 'a' ) {|f| f.write(e.message) }
+    notify_admin e.message
   rescue Net::IMAP::ByeResponseError => e
-    File.open("#{USERNAME}.err.log", 'a') {|f| f.write(e.message) }
-    notify_admin
+    File.open( "#{USERNAME}.err.log", 'a' ) {|f| f.write(e.message) }
+    notify_admin e.message
   rescue => e
-    File.open("#{USERNAME}.err.log", 'a') do |f| 
+    File.open( "#{USERNAME}.err.log", 'a' ) do |f| 
       f.write(e.message)
       f.write(e.backtrace)
     end
-    notify_admin
+    notify_admin e.message
   end
 end
