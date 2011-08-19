@@ -19,7 +19,11 @@ class Invite < ActiveRecord::Base
     def notify_admin
       invites_url = 'http://www.vybit.com/invites/'
 
-      notifo = Notifo.new("billiamram","notifo_key")
-      notifo.post("billiamram", "Notifier Invitation Request", "New request from #{email}!", invites_url)
+      notifo = Notifo.new( Configuration.notifo_admin_user, 
+                           Configuration.notifo_admin_key )
+      notifo.post("billiamram", 
+                  "Notifier Invitation Request", 
+                  "New request from #{email}!", 
+                  invites_url)
     end
 end

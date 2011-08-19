@@ -37,6 +37,8 @@ Pusher::Application.configure do
   config.after_initialize do
     Configuration.notifo_service_user = 'billiamram'
     Configuration.notifo_service_key = 'notifo_key'
+    Configuration.notifo_admin_user = 'billiamram'
+    Configuration.notifo_admin_key = 'notifo_key'
     Configuration.google_consumer_key = 'anonymous'
     Configuration.google_consumer_secret = 'anonymous'
     Configuration.google_consumer_params = {
