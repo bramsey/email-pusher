@@ -8,8 +8,9 @@ class Contact < ActiveRecord::Base
   validates :email, :presence => true,
                     :format => { :with => email_regex }
   
-  validates :email, :uniqueness => {:scope => :user_id, 
-                                              :message => "You already have this contact."}
+  validates :email, 
+              :uniqueness => {:scope => :user_id, 
+                                        :message => "You already have this contact."}
   
   validates :user_id, :presence => true
 end
