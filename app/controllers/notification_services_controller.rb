@@ -30,12 +30,15 @@ class NotificationServicesController < ApplicationController
       @notification_service  = NotificationService.create(params[:notification_service])
       if @notification_service.save
         flash.now[:success] = "Service created!"
-        current_user.update_attribute(:default_notification_service_id, @notification_service.id) if current_user.notification_services.all.length == 1
+        current_user.update_attribute(:default_notification_service_id, 
+                                      @notification_service.id) if 
+                                        current_user.notification_services.all.length == 1
       else
         flash.now[:error] = "Notification Service not saved."
       end
     elsif response['response_code'] == 1105
-      flash.now[:error] = "No such user found. Please check the id or register if needed."
+      flash.now[:error] = 
+        "No such user found. Please check the id or register if needed."
     else
       flash.now[:error] = "Unable to verify Notifo account."
       logger.info response
@@ -63,9 +66,11 @@ class NotificationServicesController < ApplicationController
           flash.now[:success] = "Notification Service updated." :
           flash.now[:error] = "Notification Service not updated."
       elsif response['response_code'] == 1105
-        @notification_service.errors.add(:username, " - No such user found. Please check the id or register if needed.")
+        @notification_service.errors.add(:username, 
+          " - No such user found. Please check the id or register if needed.")
       else
-        @notification_service.errors.add(:username, " - Unable to verify Notifo account.")
+        @notification_service.errors.add(:username, 
+                                          " - Unable to verify Notifo account.")
       end
       respond_with @notification_service
     end 
@@ -73,7 +78,8 @@ class NotificationServicesController < ApplicationController
     
   
   def destroy
-    current_user.update_attribute(:default_notification_service, nil) if current_user.default_notification_service == @notification_service
+    current_user.update_attribute(:default_notification_service, nil) if 
+      current_user.default_notification_service == @notification_service
     @notification_service.destroy
     respond_with @notification_service
   end
@@ -94,8 +100,8 @@ class NotificationServicesController < ApplicationController
     end
     
     def verify_notifo( username )
-      notifo = Notifo.new(Configuration.notifo_service_user, Configuration.notifo_service_key)
+      notifo = Notifo.new(Configuration.notifo_service_user, 
+                          Configuration.notifo_service_key)
       response = JSON( notifo.subscribe_user( username ) )
-      #logger.info "response code: >#{response['response_code']}<"
     end
 end

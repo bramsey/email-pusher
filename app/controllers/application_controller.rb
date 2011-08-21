@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
       super(options, response_status)
     end
   end
+  
+  def admin_user
+    @admin = User.find_by_email( Configuration.admin_email )
+    redirect_to root_path unless current_user?(@admin)
+  end
 end

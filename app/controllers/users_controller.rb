@@ -37,18 +37,17 @@ class UsersController < ApplicationController
   end
   
   def init
-    logger.info "starting init"
     sender = params[:sender]
     recipient = params[:recipient]
-    priority = params[:priority]
+
     subject = params[:subject] || "no subject provided"
-    @user = User.find_by_email( recipient ) unless recipient.nil?
-    logger.info "assigned @user."
+    account = Account.find_by_email( recipient.downcase )
+    @user = account.user unless account.nil?
     unless (sender.nil? || @user.nil?)
       if @user.has_active_contact?(sender.downcase)
-        @user.default_notification_service.notify(sender, subject, recipient) if @user.default_notification_service_id
+        @user.default_notification_service.notify(sender, subject, recipient) if 
+          @user.default_notification_service_id
         @response = "notification sent at #{Time.now}"
-        logger.info "response: #{@response}<"
         render :text => @response
       else
         logger.info "no active contact."
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
       logger.info "sender or user nil."
       render :text => 'denied'
     end
-    logger.info "end of init."
   end
 
   def destroy
@@ -81,11 +79,6 @@ class UsersController < ApplicationController
 
     def already_signed_in
       redirect_to(root_path) if user_signed_in?
-    end
-    
-    def admin_user
-      @admin = User.find_by_email 'user@example.com'
-      redirect_to root_path unless current_user?(@admin)
     end
     
     def update_listener

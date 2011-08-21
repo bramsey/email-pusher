@@ -60,7 +60,6 @@ class ContactsController < ApplicationController
   
   def toggle_active
     @contact = Contact.find(params[:id])
-    
     @contact.update_attribute(:active, !@contact.active)
 
     render :nothing => true

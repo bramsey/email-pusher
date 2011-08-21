@@ -74,5 +74,6 @@ Pusher::Application.configure do
       :authorize_path => '/accounts/OAuthAuthorizeToken',
       :signature_method => 'HMAC-SHA1'
     }
+    Configuration.admin_email = 'user@example.com'
   end
 end

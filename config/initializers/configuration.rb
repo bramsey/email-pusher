@@ -6,6 +6,7 @@ class Configuration
                   :notifo_admin_key,
                   :google_consumer_key,
                   :google_consumer_secret,
-                  :google_consumer_params
+                  :google_consumer_params,
+                  :admin_email
   end
 end

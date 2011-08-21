@@ -51,8 +51,4 @@ class InvitesController < ApplicationController
   
   private
     
-    def admin_user
-      @admin = User.find_by_email 'user@example.com'
-      redirect_to root_path unless current_user?(@admin)
-    end
 end
