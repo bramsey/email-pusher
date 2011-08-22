@@ -35,7 +35,6 @@ Pusher::Application.routes.draw do
   resources :accounts do
     member do
       post :toggle_active
-      post :update_service
     end
   end
   
