@@ -1,9 +1,0 @@
-%h2= @contact.email
-= activate_box_for @contact
-= form_for @contact do |f|
-	= render 'shared/error_messages', :object => f.object
-	.field
-		= f.label :email
-		= f.text_field :email
-	.actions
-		= f.submit "Update contact"
