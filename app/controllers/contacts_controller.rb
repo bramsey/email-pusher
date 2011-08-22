@@ -11,25 +11,11 @@ class ContactsController < ApplicationController
   end
 
   def create
-    if params[:contact]
+    if params[:contact] # When creating one contact.
       params[:contact][:email] = params[:contact][:email].downcase
-      @contact  = @user.contacts.build(params[:contact])
-      @contact.save ?
-        flash.now[:success] = "Contact created!" :
-        flash.now[:error] = "Error creating contact. :("
-    
-      respond_with @contact
-    elsif params[:contacts]
-      contacts = params[:contacts].split( ',' )
-      errors_found = false
-      contacts.each do |contact| 
-        errors_found = true unless @user.contacts.build(:user_id => @user.id, :email => contact.downcase ).save
-      end 
-      errors_found ?
-        flash[:error] = "Error creating contacts. :(" :
-        flash[:success] = "Contacts created!"
-        
-      redirect_to contacts_path
+      create_contact( params[:contact] )
+    elsif params[:contacts] # When creating multiple contacts.
+      create_contacts( params[:contacts] )
     end
   end
 
@@ -39,23 +25,6 @@ class ContactsController < ApplicationController
       flash.now[:error] = "Error deleting contact."
     
     respond_with @contact
-  end
-  
-  def edit
-    @contact = Contact.find(params[:id])
-  end
-  
-  def update
-    @contact = Contact.find(params[:id])
-    if params[:contact][:notification_service_id].is_a?(String)
-      params[:contact][:notification_service_id] = params[:contact][:notification_service_id].to_i
-    end
-    
-    RAILS_DEFAULT_LOGGER.error params[:contact][:notification_service_id]
-    @contact.update_attributes(params[:contact]) ?
-      flash[:success] = "Contact updated." :
-      flash[:error] = "Error updating contact."
-    redirect_to contacts_path
   end
   
   def toggle_active
@@ -88,5 +57,28 @@ class ContactsController < ApplicationController
         @user = (@contact = Contact.find(params[:id])).user :
         @user = User.find(params[:user_id])
       redirect_to root_path unless current_user?(@user)
+    end
+    
+    def create_contact( contact_params )
+      @contact  = @user.contacts.build(params[:contact])
+      @contact.save ?
+        flash.now[:success] = "Contact created!" :
+        flash.now[:error] = "Error creating contact."
+
+      respond_with @contact
+    end
+    
+    def create_contacts( contacts_params )
+      contacts = contacts_params.split( ',' )
+      errors_found = false
+      contacts.each do |contact| 
+        errors_found = true unless 
+          @user.contacts.build(:user_id => @user.id, :email => contact.downcase ).save
+      end 
+      errors_found ?
+        flash[:error] = "Error creating contacts." :
+        flash[:success] = "Contacts created!"
+        
+      redirect_to contacts_path
     end
 end
