@@ -31,7 +31,8 @@ class NotifoService < NotificationService
             errors.add( :username, 
               "No such user found. Please check the id or register if needed." )
           else
-            errors.add( :username, "Unable to verify Notifo account."
+            errors.add( :username, "Unable to verify Notifo account." )
+          end
           return false
         end
         logger.info response
