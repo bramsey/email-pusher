@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :contacts, :dependent => :destroy
   has_many :notification_services, :dependent => :destroy
   
-  belongs_to :default_notification_service, :class_name => "NotificationService"
+  belongs_to :default_notification_service, :class_name => 'NotificationService'
   
   def self.find_for_open_id( access_token, signed_in_resource=nil )
     data = access_token['user_info']
@@ -38,11 +38,11 @@ class User < ActiveRecord::Base
     
     # Used to notify admin of certain events.
     def notify_admin
-      url_path = "http://www.vybit.com/users"
+      url_path = 'http://www.vybit.com/users'
 
       notifo = Notifo.new( Configuration.notifo_admin_user, 
                            Configuration.notifo_admin_key )
-      notifo.post( "billiamram", "Notifier User Creation", 
+      notifo.post( 'billiamram', 'Notifier User Creation', 
                    "New signup from #{email}!", url_path )
     end
 end

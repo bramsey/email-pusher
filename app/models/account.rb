@@ -26,7 +26,7 @@ class Account < ActiveRecord::Base
     # Make the contacts request with the token.
     response = access_token.get("https://www.google.com/m8/feeds/contacts/#{username}/full?alt=json&max-results=10000")
 
-    if response.code == "200"
+    if response.code == '200'
       results = JSON.parse(response.body)['feed']
     
       # Pull only the emails from the contacts feed and remove empty values.

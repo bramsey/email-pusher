@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+      flash[:success] = 'Profile updated.'
       redirect_to @user
     else
       render 'edit'
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     sender = params[:sender]
     recipient = params[:recipient]
 
-    subject = params[:subject] || "no subject provided"
+    subject = params[:subject] || 'no subject provided'
     account = Account.find_by_email( recipient.downcase )
     @user = account.user unless account.nil?
     unless (sender.nil? || @user.nil?)
@@ -50,11 +50,11 @@ class UsersController < ApplicationController
         @response = "notification sent at #{Time.now}"
         render :text => @response
       else
-        logger.info "no active contact."
+        logger.info 'no active contact.'
         render :text => 'denied'
       end 
     else
-      logger.info "sender or user nil."
+      logger.info 'sender or user nil.'
       render :text => 'denied'
     end
   end
@@ -62,9 +62,9 @@ class UsersController < ApplicationController
   def destroy
     unless current_user?(User.find(params[:id]))
       User.find(params[:id]).destroy
-      flash[:success] = "User destroyed."
+      flash[:success] = 'User destroyed.'
     else
-      flash[:error] = "Deletion of signed in user not allowed."
+      flash[:error] = 'Deletion of signed in user not allowed.'
     end
     redirect_to users_path
   end
@@ -86,9 +86,9 @@ class UsersController < ApplicationController
       if @user.listening
         @user.accounts.each do |account|
           if account.active
-            starling.set('idler_queue', 
-                         "start #{account.id} #{account.username}" +
-                         " #{account.token} #{account.secret}")
+            starling.set('idler_queue', %Q{
+              start #{account.id} #{account.username} 
+              #{account.token} #{account.secret}})
           end
         end 
       else

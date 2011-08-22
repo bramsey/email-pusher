@@ -10,7 +10,7 @@ class Contact < ActiveRecord::Base
   
   validates :email, 
               :uniqueness => {:scope => :user_id, 
-                                        :message => "You already have this contact."}
+                                        :message => 'You already have this contact.'}
   
   validates :user_id, :presence => true
 end

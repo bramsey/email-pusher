@@ -16,10 +16,9 @@ class OauthController < ApplicationController
         
     begin
       @access_token = @request_token.get_access_token({:oauth_verifier => params[:oauth_verifier]})
-    RAILS_DEFAULT_LOGGER.error "post access token creation"
     
     rescue
-      flash[:error] = "Authorization denied"
+      flash[:error] = 'Authorization denied'
     end
     
     if @access_token
@@ -33,8 +32,9 @@ class OauthController < ApplicationController
       
       @account = Account.find_by_username(@email)
       if @account
-        @account.update_attributes(:token => @access_token.token, :secret => @access_token.secret)
-        flash["success"] = "#{@email} linked successfully."
+        @account.update_attributes(:token => @access_token.token, 
+                                   :secret => @access_token.secret)
+        flash[:success] = "#{@email} linked successfully."
       else
         logger.error "account not found for: #{@email}, trying to create new one."
         
@@ -47,7 +47,7 @@ class OauthController < ApplicationController
         if @account.save
           flash[:success] = "#{@email} linked successfully."
         else
-          flash[:error] = "Could not create account with the returned credentials"
+          flash[:error] = 'Could not create account with the returned credentials.'
           logger.error "could not create account for #{@email}"
         end
       end
@@ -55,8 +55,8 @@ class OauthController < ApplicationController
       session[:oauth][:access_token] = @access_token.token
       session[:oauth][:access_token_secret] = @access_token.secret
     else
-      logger.error "access token not generated"
-      flash[:error] = "Authorization denied"
+      logger.error 'access token not generated'
+      flash[:error] = 'Authorization denied.'
     end
     
     session[:oauth] = {}
@@ -74,11 +74,15 @@ class OauthController < ApplicationController
                                         Configuration.google_consumer_params)
 
       if !session[:oauth][:request_token].nil? && !session[:oauth][:request_token_secret].nil?
-        @request_token = OAuth::RequestToken.new(@consumer, session[:oauth][:request_token], session[:oauth][:request_token_secret])
+        @request_token = OAuth::RequestToken.new(@consumer, 
+                                                 session[:oauth][:request_token], 
+                                                 session[:oauth][:request_token_secret])
       end
 
       if !session[:oauth][:access_token].nil? && !session[:oauth][:access_token_secret].nil?
-        @access_token = OAuth::AccessToken.new(@consumer, session[:oauth][:access_token], session[:oauth][:access_token_secret])
+        @access_token = OAuth::AccessToken.new(@consumer, 
+                                               session[:oauth][:access_token], 
+                                               session[:oauth][:access_token_secret])
       end
     end
   

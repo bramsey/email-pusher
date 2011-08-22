@@ -21,8 +21,8 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy ?
-      flash.now[:success] = "Contact deleted." :
-      flash.now[:error] = "Error deleting contact."
+      flash.now[:success] = 'Contact deleted.' :
+      flash.now[:error] = 'Error deleting contact.'
     
     respond_with @contact
   end
@@ -62,8 +62,8 @@ class ContactsController < ApplicationController
     def create_contact( contact_params )
       @contact  = @user.contacts.build(params[:contact])
       @contact.save ?
-        flash.now[:success] = "Contact created!" :
-        flash.now[:error] = "Error creating contact."
+        flash.now[:success] = 'Contact created!' :
+        flash.now[:error] = 'Error creating contact.'
 
       respond_with @contact
     end
@@ -76,8 +76,8 @@ class ContactsController < ApplicationController
           @user.contacts.build(:user_id => @user.id, :email => contact.downcase ).save
       end 
       errors_found ?
-        flash[:error] = "Error creating contacts." :
-        flash[:success] = "Contacts created!"
+        flash[:error] = 'Error creating contacts.' :
+        flash[:success] = 'Contacts created!'
         
       redirect_to contacts_path
     end

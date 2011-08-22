@@ -18,7 +18,7 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(params[:invite])
     if @invite.save
-      flash[:success] = "Thanks for your interest!"
+      flash[:success] = 'Thanks for your interest!'
       InviteMailer.thank_you_email( @invite ).deliver # Make asynch.
     else
       flash[:error] = %q{ There was an error submitting your email address, 
@@ -30,8 +30,8 @@ class InvitesController < ApplicationController
 
   def destroy
     @invite.destroy ?
-      flash[:success] = "Invite destroyed." :
-      flash[:error] = "Invite could not be destroyed."
+      flash[:success] = 'Invite destroyed.' :
+      flash[:error] = 'Invite could not be destroyed.'
 
     redirect_to invites_path
   end

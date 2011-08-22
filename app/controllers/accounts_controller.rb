@@ -16,7 +16,7 @@ class AccountsController < ApplicationController
   def create
     @account  = @user.accounts.build(params[:account])
     if @account.save
-      flash[:success] = "Account created!"
+      flash[:success] = 'Account created!'
       redirect_to root_path
     else
       render 'pages/home'
@@ -25,8 +25,8 @@ class AccountsController < ApplicationController
 
   def destroy
     @account.destroy ?
-      flash.now[:success] = "Account deleted." :
-      flash.now[:error] = "Error deleting account."
+      flash.now[:success] = 'Account deleted.' :
+      flash.now[:error] = 'Error deleting account.'
     
     respond_with @account
   end
@@ -56,7 +56,7 @@ class AccountsController < ApplicationController
     def update_listener
       starling = Starling.new('localhost:22122')
       if @account.active && !@account.destroyed
-        starling.set('idler_queue', %{
+        starling.set('idler_queue', %Q{
           start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}
           }) if @account.user.listening 
       else

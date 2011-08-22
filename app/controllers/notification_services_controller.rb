@@ -15,7 +15,7 @@ class NotificationServicesController < ApplicationController
     case params[:type]
     when "NotifoService"
       @notification_service = NotificationService.new(:user_id => current_user.id,
-                                                      :type => "NotifoService")
+                                                      :type => 'NotifoService')
     else
       @notification_service = nil
     end
@@ -24,13 +24,13 @@ class NotificationServicesController < ApplicationController
   def create
     @notification_service  = NotificationService.create(params[:notification_service])
     if @notification_service.save
-      flash.now[:success] = "Service created!"
+      flash.now[:success] = 'Service created!'
       current_user.update_attribute(:default_notification_service_id, 
                                     @notification_service.id)
     else
       @notification_service.errors ?
         flash.now[:error] = @notification_service.errors.first :
-        flash.now[:error] = "Notification Service not saved."
+        flash.now[:error] = 'Notification Service not saved.'
     end
     
     respond_with @notification_service
@@ -45,8 +45,8 @@ class NotificationServicesController < ApplicationController
       destroy
     else
       @notification_service.update_attributes(params[:notifo_service]) ?
-        flash.now[:success] = "Notification Service updated." :
-        flash.now[:error] = "Notification Service not updated."
+        flash.now[:success] = 'Notification Service updated.' :
+        flash.now[:error] = 'Notification Service not updated.'
         
       respond_with @notification_service
     end 
@@ -57,8 +57,8 @@ class NotificationServicesController < ApplicationController
     current_user.update_attribute(:default_notification_service, nil) if 
       current_user.default_notification_service == @notification_service
     @notification_service.destroy ?
-      flash.now[:success] = "Notification Service deleted" :
-      flash.now[:success] = "Notification Service not deleted."
+      flash.now[:success] = 'Notification Service deleted' :
+      flash.now[:success] = 'Notification Service not deleted.'
       
     respond_with @notification_service
   end

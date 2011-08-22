@@ -21,8 +21,8 @@ class Invite < ActiveRecord::Base
 
       notifo = Notifo.new( Configuration.notifo_admin_user, 
                            Configuration.notifo_admin_key )
-      notifo.post("billiamram", 
-                  "Notifier Invitation Request", 
+      notifo.post('billiamram', 
+                  'Notifier Invitation Request', 
                   "New request from #{email}!", 
                   invites_url)
     end
