@@ -23,21 +23,25 @@ class NotifoService < NotificationService
                           Configuration.notifo_service_key)
       response = JSON( notifo.subscribe_user( username ) )
       
-      # Cause save to fail if notifo account isn't valid.
       if response
         unless response['status'] == "success"
+          # Case allows checking of new error codes if necessary.
           case response['response_code']
           when 1105
             errors.add( :username, 
-              "No such user found. Please check the id or register if needed." )
+              'No such user found. Please check the id or register if needed.' )
+          when 1102
+            errors.add( :username, 'Not allowed to send to user.' )
+          when 1106
+            errors.add( :username, 'Not allowed to subscribe user.' )
           else
-            errors.add( :username, "Unable to verify Notifo account." )
+            errors.add( :username, 'Unable to verify Notifo account.' )
           end
           return false
         end
         logger.info response
       else
-        errors.add( :username, "Unable to connect to Notifo." )
+        errors.add( :username, 'Unable to connect to Notifo.' )
         return false
       end
     end
