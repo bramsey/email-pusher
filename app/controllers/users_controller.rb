@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     recipient = params[:recipient]
 
     subject = params[:subject] || 'no subject provided'
-    account = Account.find_by_email( recipient.downcase )
+    account = Account.find_by_username( recipient.downcase )
     @user = account.user unless account.nil?
     unless (sender.nil? || @user.nil?)
       if @user.has_active_contact?(sender.downcase)
